@@ -1,0 +1,24 @@
+{
+  "name": "orinoco-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/assets/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./assets/sass/style.scss:./assets/css/style.css",
+    "prefix": "postcss --watch ./assets/css/style.css --use autoprefixer -d ./assets/css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdesurmo64/projet5-orinoco-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdesurmo64/projet5-orinoco-front/issues"
+  },
+  "homepage": "https://github.com/cdesurmo64/projet5-orinoco-front#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
