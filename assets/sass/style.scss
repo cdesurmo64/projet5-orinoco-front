@@ -1,2 +1,5 @@
-@import "variable_overrides";
+@import "utils/variable_overrides";
+@import "base/global";
+@import "base/typography";
+@import "layouts/header";
 @import "../../node_modules/bootstrap/scss/bootstrap";
