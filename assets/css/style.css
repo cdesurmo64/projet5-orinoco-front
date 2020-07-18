@@ -16,6 +16,19 @@ html body h2 {
 html body a {
   text-decoration: none;
 }
+html body .bg-bear {
+  background-image: url("../images/teddy-bear-heart-icon-background.svg");
+  background-repeat: repeat;
+  background-size: 75px;
+}
+html body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+html body .bg-bear {
+  flex: 1;
+}
 
 @font-face {
   font-family: "Teddy";

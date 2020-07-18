@@ -20,6 +20,24 @@ html {
     a {
       text-decoration: none;
     }
+
+    .bg-bear {
+      background-image: url("../images/teddy-bear-heart-icon-background.svg");
+      background-repeat: repeat;
+      background-size: 75px;
+    }
+  }
+
+
+  //For tests on background :
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .bg-bear {
+      flex: 1;
+    }
   }
 }
 
