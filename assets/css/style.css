@@ -34,6 +34,10 @@ html body .bg-bear {
   font-family: "Teddy";
   src: url("../fonts/teddy.woff2") format("woff2"), url("../fonts/teddy.woff") format("woff");
 }
+#item-list-container .item-image img {
+  max-width: 100%;
+}
+
 header .brand-text {
   font-family: "Teddy", cursive;
   font-size: 6rem;

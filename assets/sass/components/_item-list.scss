@@ -1,3 +1,10 @@
-.bg-white {
-  background-color: $white;
+#item-list-container {
+
+  .item-image {
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
+
