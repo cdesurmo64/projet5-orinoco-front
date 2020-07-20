@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             {
                 const newItemWrapper = document.createElement('div');
                 itemListContainer.appendChild(newItemWrapper);
-                newItemWrapper.classList.add('col', 'col-lg-8', 'my-5', 'mx-lg-auto');
+                newItemWrapper.classList.add('col-12', 'col-lg-8', 'my-5', 'mx-lg-auto');
 
                 newItemWrapper.innerHTML =
                     '                            <div class=\"card bg-white shadow\">' +
@@ -23,20 +23,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     '                                    <div class=\"card-image item-image\">' +
                     '                                       <img src="' + teddy.imageUrl + '">' +
                     '                                    </div>' +
-                    '                                       <h3 class=\"card-title item-name\">' +
+                    '                                    <div class=\"item-info\">' +
+                    '                                       <h2 class=\"card-title item-name\">' +
                                                                 teddy.name +
-                    '                                       </h3>' +
-                    '                                    <div class=\"card-text\">' +
-                    '                                        <p class=\"item-description\">' +
+                    '                                       </h2>' +
+                    '                                       <div class=\"card-text\">' +
+                    '                                           <p class=\"item-description\">' +
                                                                 teddy.description +
-                    '                                        </p>' +
-                    '                                        <div class=\"item-price\">' +
-                    '                                            Prix: <span class=\"item-price__number\">' + teddy.price + ' €</span>' +
-                    '                                        </div>' +
+                    '                                           </p>' +
+                    '                                           <div class=\"item-price\">' +
+                    '                                               Prix: <span class=\"item-price__number\">' + teddy.price + ' €</span>' +
+                    '                                           </div>' +
+                    '                                       </div>' +
                     '                                    </div>' +
+                    '                                    <a class=\"btn btn-primary btn-select\" role=\"button\">' +
+                    '                                    Sélectionner ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
+                    '                                    </a>' +
                     '                                </div>' +
-                    '                            </div>' +
-                    '                        </div>';
+                    '                            </div>';
             }
         }
         else

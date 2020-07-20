@@ -1,0 +1,39 @@
+// Mobile&Up
+#item-list-container {
+
+  .item-image {
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .item-info {
+    margin: 1.5rem;
+
+
+    .item-name {
+      font-family: $teddy;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .item-description {
+      text-align: justify;
+    }
+
+    .item-price {
+      font-weight: 600;
+
+      &__number {
+        color: $purple-text;
+      }
+    }
+  }
+}
+
+
+
+
+
