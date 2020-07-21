@@ -1,0 +1,52 @@
+// Mini Mobile&Up
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto 3rem;
+  width: 80%;
+  padding: 2rem;
+
+  .api-error-img {
+    order: 1;
+    margin-bottom: 4rem;
+  }
+
+  .api-error-msg {
+    order: 2;
+  }
+
+  .refresh-button {
+    border: none;
+    background: url("../images/refresh-button-icon.svg") no-repeat center center;
+    width: 5rem;
+    height: 5rem;
+    order: 3;
+    margin: 2rem 0;
+  }
+}
+
+
+// Mobile&Up
+@media (min-width: $mobile) {
+  .error-wrapper {
+    width: auto;
+  }
+}
+
+
+// Tablet&Up
+@media (min-width: $tablet) {
+  .error-wrapper {
+    margin: 0 auto 5rem;
+    padding: 18rem 18rem 16rem;
+    border: none;
+    border-radius: 0;
+
+    .refresh-button {
+      margin: 3rem 0 -2rem;
+    }
+  }
+}
+
+

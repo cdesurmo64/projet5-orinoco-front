@@ -106,7 +106,7 @@ html body {
   font-family: "Teddy", cursive;
   font-size: 5rem;
 }
-.bear-form-wrapper img {
+.bear-form-wrapper > img {
   width: 30rem;
 }
 
@@ -118,6 +118,46 @@ html body {
     padding: 11rem 18rem 8rem;
     border: none;
     border-radius: 0;
+  }
+}
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto 3rem;
+  width: 80%;
+  padding: 2rem;
+}
+.error-wrapper .api-error-img {
+  order: 1;
+  margin-bottom: 4rem;
+}
+.error-wrapper .api-error-msg {
+  order: 2;
+}
+.error-wrapper .refresh-button {
+  border: none;
+  background: url("../images/refresh-button-icon.svg") no-repeat center center;
+  width: 5rem;
+  height: 5rem;
+  order: 3;
+  margin: 2rem 0;
+}
+
+@media (min-width: 430px) {
+  .error-wrapper {
+    width: auto;
+  }
+}
+@media (min-width: 768px) {
+  .error-wrapper {
+    margin: 0 auto 5rem;
+    padding: 18rem 18rem 16rem;
+    border: none;
+    border-radius: 0;
+  }
+  .error-wrapper .refresh-button {
+    margin: 3rem 0 -2rem;
   }
 }
 header .navbar {
