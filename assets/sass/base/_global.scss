@@ -1,6 +1,4 @@
-//MOBILE (& UP) STYLE
-
-
+// Mobile&Up
 html {
   font-size: 62.5%;
 
@@ -21,23 +19,17 @@ html {
       text-decoration: none;
     }
 
-    .bg-bear {
-      background-image: url("../images/teddy-bear-heart-icon-background.svg");
+    .bg-stains {
+      background-image: url("../images/paint-splash-gold.png");
       background-repeat: repeat;
-      background-size: 75px;
     }
   }
-
 
   //For tests on background :
   body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
-    .bg-bear {
-      flex: 1;
-    }
   }
 }
 

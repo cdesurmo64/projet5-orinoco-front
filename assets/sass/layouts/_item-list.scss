@@ -1,10 +1,16 @@
 // Mobile&Up
 #item-list-container {
 
+  .card {
+    border-radius: 30px;
+  }
+
   .item-image {
 
     img {
       max-width: 100%;
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
     }
   }
 

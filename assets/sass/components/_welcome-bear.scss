@@ -1,0 +1,39 @@
+// Mobile&Up
+.bear-form-wrapper {
+  background-color: $white;
+  margin: 1rem auto 3rem;
+  padding: 1rem;
+  border: solid 5px $light;
+  border-radius: 25px;
+
+
+  .welcome-message {
+    text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin-bottom: 2rem;
+
+    .brand-name {
+      font-family: $teddy;
+      font-size: 5rem;
+    }
+  }
+
+  img {
+    width: 30rem;
+  }
+}
+
+// Tablet&Up
+@media (min-width: $tablet) {
+
+  .bear-form-wrapper {
+    background: url(../images/bear-head-form.svg) no-repeat center center;
+    background-size: 100%;
+    margin: 0 auto 5rem;
+    padding: 11rem 18rem 8rem;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+
