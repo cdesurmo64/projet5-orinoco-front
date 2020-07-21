@@ -17,11 +17,19 @@ html {
 
     a {
       text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     .bg-stains {
       background-image: url("../images/paint-splash-gold.png");
       background-repeat: repeat;
+    }
+
+    main {
+      padding-bottom: 17rem;
     }
   }
 

@@ -16,9 +16,15 @@ html body h2 {
 html body a {
   text-decoration: none;
 }
+html body a:hover {
+  text-decoration: none;
+}
 html body .bg-stains {
   background-image: url("../images/paint-splash-gold.png");
   background-repeat: repeat;
+}
+html body main {
+  padding-bottom: 17rem;
 }
 html body {
   min-height: 100vh;
@@ -194,6 +200,32 @@ header .navbar .navbar-brand .brand-text {
   header .navbar .nav-link img {
     width: 85px;
     height: 85px;
+  }
+}
+
+footer {
+  border-top: 2px solid #8F7019;
+  padding: 1.5rem;
+}
+footer .legal-link, footer .socials, footer .contact {
+  text-align: center;
+}
+footer .legal-link a, footer .socials a, footer .contact a {
+  font-size: 1.8rem;
+  color: #D6A624;
+}
+footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
+  color: #ffffff;
+}
+@media (min-width: 768px) {
+  footer .legal-link {
+    text-align: left;
+  }
+  footer .contact {
+    text-align: right;
+  }
+  footer .legal-link a, footer .socials a, footer .contact a {
+    font-size: 2.3rem;
   }
 }
 

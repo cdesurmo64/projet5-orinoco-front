@@ -1,0 +1,36 @@
+//Mobile&Up
+footer {
+  border-top: 2px solid $primary;
+  padding: 1.5rem;
+
+  .legal-link, .socials, .contact {
+    text-align: center;
+
+    a {
+      font-size: 1.8rem;
+      color: $golden-light;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    .legal-link {
+      text-align: left;
+    }
+
+    .contact {
+      text-align: right;
+    }
+
+    .legal-link, .socials, .contact {
+
+      a {
+        font-size: 2.3rem;
+      }
+    }
+  }
+}
