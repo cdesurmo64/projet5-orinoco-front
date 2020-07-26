@@ -87,7 +87,7 @@ const displayAllTeddiesInfo = async function () {
 };
 
 
-//
+// To execute displayAllTeddiesInfo() when DOM content is loaded (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
     displayAllTeddiesInfo();
 });
