@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     newItemWrapper.classList.add('col-12', 'col-lg-8', 'my-5', 'mx-lg-auto');
 
                     newItemWrapper.innerHTML =
-                        '                            <div class=\"card bg-white shadow\">' +
+                        '                            <article class=\"card bg-white shadow\">' +
                         '                                <div class=\"card-body\">' +
                         '                                    <div class=\"card-image item-image\">' +
                         '                                       <img src=\"' + teddy.imageUrl + '\">' +
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         '                                    Sélectionner ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
                         '                                    </a>' +
                         '                                </div>' +
-                        '                            </div>';
+                        '                            </article>';
                 }
             }
 

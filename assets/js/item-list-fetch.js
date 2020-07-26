@@ -39,7 +39,7 @@ const displayTeddyInfo = function (teddy) {
     newItemWrapper.classList.add('col-12', 'col-lg-8', 'my-5', 'mx-lg-auto');
 
     newItemWrapper.innerHTML =
-        '                            <div class=\"card bg-white shadow\">' +
+        '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
         '                                    <div class=\"card-image item-image\">' +
         '                                       <img src=\"' + teddy.imageUrl + '\">' +
@@ -57,11 +57,11 @@ const displayTeddyInfo = function (teddy) {
         '                                           </div>' +
         '                                       </div>' +
         '                                    </div>' +
-        '                                    <a class=\"btn btn-primary btn-select\" role=\"button\">' +
+        '                                    <a class=\"btn btn-primary btn-select\" href="product.html?_id=' + teddy._id +'">' +
         '                                    Sélectionner ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
         '                                    </a>' +
         '                                </div>' +
-        '                            </div>';
+        '                            </article>';
 };
 
 
