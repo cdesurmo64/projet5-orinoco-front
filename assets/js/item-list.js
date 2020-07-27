@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         '                                       </div>' +
                         '                                    </div>' +
                         '                                    <a class=\"btn btn-primary btn-select\" role=\"button\">' +
-                        '                                    Sélectionner ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
+                        '                                    Découvrir ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
                         '                                    </a>' +
                         '                                </div>' +
                         '                            </article>';

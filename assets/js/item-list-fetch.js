@@ -58,7 +58,7 @@ const displayTeddyInfo = function (teddy) {
         '                                       </div>' +
         '                                    </div>' +
         '                                    <a class=\"btn btn-primary btn-select\" href="product.html?_id=' + teddy._id +'">' +
-        '                                    Sélectionner ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
+        '                                    Découvrir ' + teddy.name + '<span class=\"beating-heart-icon heart-icon-love-pink\"></span>' +
         '                                    </a>' +
         '                                </div>' +
         '                            </article>';
