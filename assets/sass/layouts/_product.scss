@@ -1,0 +1,79 @@
+// Mobile&Up
+
+#title-container {
+  background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+  background-size: contain;
+  padding: 13rem 20rem;
+
+  .product-page-title {
+    font-size: 4rem;
+    text-align: center;
+    font-family: $wonderkids;
+    color: $dark;
+
+    .hyphen {
+      font-family: $sans-serif;
+    }
+  }
+}
+
+
+#product-container {
+
+  .card {
+    border-radius: 15px;
+  }
+
+  .product-image {
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+  }
+
+  .product-info {
+    margin: 1.5rem;
+
+
+    .product-name {
+      font-family: $teddy;
+      font-size: 4rem;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .product-reference {
+      text-align: center;
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-bottom: 4.5rem;
+
+    }
+
+    .product-description {
+      text-align: justify;
+      margin-bottom: 3rem;
+    }
+
+    .product-price {
+      font-weight: 600;
+
+      &__number {
+        color: $purple-text;
+      }
+    }
+  }
+}
+
+
+// Tablet&Up
+@media (min-width: $tablet) {
+
+
+
+}
+
+
+
+

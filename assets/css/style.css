@@ -36,6 +36,10 @@ html body {
   font-family: "Teddy";
   src: url("../fonts/teddy.woff2") format("woff2"), url("../fonts/teddy.woff") format("woff");
 }
+@font-face {
+  font-family: "Wonderkids";
+  src: url("../fonts/wonderkids.woff2") format("woff2"), url("../fonts/wonderkids.woff") format("woff");
+}
 #item-list-container .btn-select {
   display: flex;
   justify-content: center;
@@ -96,6 +100,48 @@ html body {
   background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
 }
 
+.add-to-cart-icon {
+  width: 1.5rem;
+  height: 3rem;
+  margin-left: 1rem;
+  display: block;
+  position: relative;
+  background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+}
+
+.customisation-form {
+  margin-top: 4rem;
+  text-align: center;
+}
+.customisation-form::before {
+  border-top: solid 2px #8F7019;
+  content: "";
+  display: block;
+  width: 30%;
+  margin: 2rem auto;
+}
+.customisation-form .customisation-form-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+.customisation-form .color-form #color-choices {
+  font-size: 1.6rem;
+  text-align-last: center;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+@media (min-width: 768px) {
+  .customisation-form .color-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .customisation-form .color-form #color-choices {
+    margin: 0 0;
+  }
+}
 .bear-form-wrapper {
   background-color: #ffffff;
   margin: 1rem auto 3rem;
@@ -249,6 +295,54 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 #item-list-container .item-info .item-description {
   text-align: justify;
   margin-bottom: 3rem;
+}
+
+#title-container {
+  background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+  background-size: contain;
+  padding: 13rem 20rem;
+}
+#title-container .product-page-title {
+  font-size: 4rem;
+  text-align: center;
+  font-family: "Wonderkids", cursive;
+  color: #232F5C;
+}
+#title-container .product-page-title .hyphen {
+  font-family: "Arial", sans-serif;
+}
+
+#product-container .card {
+  border-radius: 15px;
+}
+#product-container .product-image img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+#product-container .product-info {
+  margin: 1.5rem;
+}
+#product-container .product-info .product-name {
+  font-family: "Teddy", cursive;
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+#product-container .product-info .product-reference {
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 4.5rem;
+}
+#product-container .product-info .product-description {
+  text-align: justify;
+  margin-bottom: 3rem;
+}
+#product-container .product-info .product-price {
+  font-weight: 600;
+}
+#product-container .product-info .product-price__number {
+  color: #9C6870;
 }
 
 /*!

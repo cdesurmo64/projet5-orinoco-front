@@ -1,0 +1,46 @@
+.customisation-form {
+  margin-top: 4rem;
+  text-align: center;
+
+  &::before {
+    border-top: solid 2px $golden;
+    content: "";
+    display: block;
+    width: 30%;
+    margin: 2rem auto;
+  }
+
+  .customisation-form-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .color-form {
+
+    #color-choices {
+      font-size: 1.6rem;
+      text-align-last: center;
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+}
+
+
+// Tablet&Up
+@media (min-width: $tablet) {
+  .customisation-form {
+
+    .color-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      #color-choices {
+        margin: 0 0;
+      }
+    }
+  }
+}
+
