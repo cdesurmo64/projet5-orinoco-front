@@ -27,14 +27,7 @@
 
     .item-description {
       text-align: justify;
-    }
-
-    .item-price {
-      font-weight: 600;
-
-      &__number {
-        color: $purple-text;
-      }
+      margin-bottom: 3rem;
     }
   }
 }

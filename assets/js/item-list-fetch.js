@@ -52,9 +52,6 @@ const displayTeddyInfo = function (teddy) {
         '                                           <p class=\"item-description\">' +
         teddy.description +
         '                                           </p>' +
-        '                                           <div class=\"item-price\">' +
-        '                                               Prix: <span class=\"item-price__number\">' + teddy.price + ' €</span>' +
-        '                                           </div>' +
         '                                       </div>' +
         '                                    </div>' +
         '                                    <a class=\"btn btn-primary btn-select\" href="product.html?_id=' + teddy._id +'">' +

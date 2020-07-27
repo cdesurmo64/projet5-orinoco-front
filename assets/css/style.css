@@ -248,12 +248,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 #item-list-container .item-info .item-description {
   text-align: justify;
-}
-#item-list-container .item-info .item-price {
-  font-weight: 600;
-}
-#item-list-container .item-info .item-price__number {
-  color: #9C6870;
+  margin-bottom: 3rem;
 }
 
 /*!
