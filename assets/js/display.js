@@ -67,21 +67,21 @@ const displayProductInfo = function (product) {
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
         '                                    <div class=\"card-image product-image\">' +
-        '                                       <img src=\"' + product.imageUrl + '\">' +
+        '                                       <img id=\"product-image\" src=\"' + product.imageUrl + '\" alt=\"Photographie du teddy bear\">' +
         '                                    </div>' +
         '                                    <div class=\"product-info\">' +
-        '                                       <h1 class=\"card-title product-name\">' +
+        '                                       <h1 id=\"product-name\" class=\"card-title product-name\">' +
         product.name +
         '                                       </h1>' +
         '                                       <div class=\"card-text\">' +
         '                                           <div class=\"product-reference\">' +
-        '                                               (Réf. ' + product._id + ')' +
+        '                                               (Réf. <span id=\"product-id\">' + product._id + '</span>)' +
         '                                           </div>' +
         '                                           <p class=\"product-description\">' +
         product.description +
         '                                           </p>' +
         '                                           <div class=\"product-price\">' +
-        '                                               Prix : <span class=\"product-price__number\">' + product.price + ' €</span>' +
+        '                                               Prix : <span id=\"product-price\" class=\"product-price__number\">' + product.price + '</span>  €' +
         '                                           </div>' +
         '                                       </div>' +
         '                                    </div>' +
@@ -93,6 +93,7 @@ const displayProductInfo = function (product) {
 
 /**
  * Create a customisation form and display all the possible color customisation choices as a select box inside
+ * and another form group to chose the wanted product quantity
  */
 const displayCustomisationMenu = function (product) {
     const productContainer = document.querySelector('.product-info .card-text');
@@ -108,6 +109,10 @@ const displayCustomisationMenu = function (product) {
         '           <select class="form-control col-7 col-md-3" id="color-choices" required>' +
         '                <option>- couleur -</option>' +
         '           </select>' +
+        '        </div>' +
+        '        <div class="form-group quantity-form">' +
+        '           <label class="quantity-form-label col-12 col-md-3" for="quantity-choices">Quantité :</label>' +
+        '           <input type="number" id="quantity-choices" class="form-control col-7 col-md-3" value="1" min="1" max="10" required>' +
         '        </div>' +
         '        <button class="btn btn-primary btn-add-cart btn-fireworks" type="submit">Adopter Norbert<span class="add-to-cart-icon"></span></button>';
 

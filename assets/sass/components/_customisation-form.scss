@@ -16,14 +16,18 @@
     margin-bottom: 2rem;
   }
 
-  .color-form {
+  .color-form, .quantity-form {
 
-    #color-choices {
+    #color-choices, #quantity-choices {
       font-size: 1.6rem;
       text-align-last: center;
       text-align: center;
       margin: 1rem auto;
     }
+  }
+
+  .quantity-form {
+    margin-top: 3rem;
   }
 }
 
@@ -32,14 +36,18 @@
 @media (min-width: $tablet) {
   .customisation-form {
 
-    .color-form {
+    .color-form, .quantity-form {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      #color-choices {
+      #color-choices, #quantity-choices {
         margin: 0 0;
       }
+    }
+
+    .quantity-form {
+      margin-top: 2rem;
     }
   }
 }

@@ -125,21 +125,27 @@ html body {
   font-size: 1.8rem;
   margin-bottom: 2rem;
 }
-.customisation-form .color-form #color-choices {
+.customisation-form .color-form #color-choices, .customisation-form .color-form #quantity-choices, .customisation-form .quantity-form #color-choices, .customisation-form .quantity-form #quantity-choices {
   font-size: 1.6rem;
   text-align-last: center;
   text-align: center;
   margin: 1rem auto;
 }
+.customisation-form .quantity-form {
+  margin-top: 3rem;
+}
 
 @media (min-width: 768px) {
-  .customisation-form .color-form {
+  .customisation-form .color-form, .customisation-form .quantity-form {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .customisation-form .color-form #color-choices {
+  .customisation-form .color-form #color-choices, .customisation-form .color-form #quantity-choices, .customisation-form .quantity-form #color-choices, .customisation-form .quantity-form #quantity-choices {
     margin: 0 0;
+  }
+  .customisation-form .quantity-form {
+    margin-top: 2rem;
   }
 }
 .bear-form-wrapper {
