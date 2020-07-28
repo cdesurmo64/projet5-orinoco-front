@@ -1,6 +1,6 @@
 // To get URL parameters (the ID)
 const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('_id');
+const currentProductId = urlParams.get('_id');
 
 
 /**
@@ -10,7 +10,7 @@ const productId = urlParams.get('_id');
 const displayAllProductInfo = async function () {
 
     try {
-        let response = await fetch('http://localhost:3000/api/teddies/' + productId);
+        let response = await fetch('http://localhost:3000/api/teddies/' + currentProductId);
 
         if (response.ok) {
             let product = await response.json();
