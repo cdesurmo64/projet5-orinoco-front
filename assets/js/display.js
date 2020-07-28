@@ -1,6 +1,7 @@
 /**
  * When the request did not went as excepted :
- * reuse and modify the inner structure of the .bear-form-wrapper element
+ * target the .error-row element (which is present in both product.html & index.html)
+ * and inject the following HTML structure inside
  * to show that there was an error during communication with the API,
  * and ask the visitor to refresh the page thanks to the newly created button
  */
