@@ -3,20 +3,25 @@
  * or display an error message and a refresh button when the API send nothing
  */
 const displayAllTeddiesInfo = async function () {
-    let response = await fetch ('http://localhost:3000/api/teddies/');
+    try {
+        let response = await fetch('http://localhost:3000/api/teddies/');
 
-    if (response.ok) {
-        let teddies = await response.json();
+        if (response.ok) {
+            let teddies = await response.json();
 
-        for (let teddy of teddies)
-        {
-            displayTeddyInfo(teddy);
+            for (let teddy of teddies) {
+                displayTeddyInfo(teddy);
+            }
+        }
+        else {
+            displayApiError();
         }
     }
-    else {
+    catch (e) {
         displayApiError();
     }
 };
+
 
 
 // To execute displayAllTeddiesInfo() when DOM content is loaded (because it uses DOM elements)
