@@ -186,6 +186,9 @@ html body {
 }
 .error-wrapper .api-error-msg {
   order: 2;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin-bottom: 2rem;
 }
 .error-wrapper .refresh-button {
   border: none;

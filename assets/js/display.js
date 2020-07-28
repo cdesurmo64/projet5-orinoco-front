@@ -5,24 +5,14 @@
  * and ask the visitor to refresh the page thanks to the newly created button
  */
 const displayApiError = function () {
-    const errorWrapper = document.querySelector('.bear-form-wrapper');
-    errorWrapper.classList.add('error-wrapper');
+    const errorRow = document.querySelector('.error-row');
 
-    const errorMessage = document.querySelector('.bear-form-wrapper h1');
-    errorMessage.classList.add('api-error-msg');
-    errorMessage.innerHTML = 'Oups, une erreur est survenue.<br> Essayez de rafraichir la page svp ❤';
-
-    const errorImage = document.querySelector('.bear-form-wrapper img');
-    errorImage.setAttribute('src', 'assets/images/teddy-bear-head-down.png');
-    errorImage.setAttribute('alt', 'Ours en peluche renversé la tête en bas');
-    errorImage.classList.add('api-error-img');
-
-    const refreshButton = document.createElement('button');
-    errorWrapper.appendChild(refreshButton);
-    refreshButton.setAttribute('id', 'refresh-btn');
-    refreshButton.setAttribute('type', 'button');
-    refreshButton.setAttribute('aria-label', 'Bouton pour rafraîchir la page');
-    refreshButton.classList.add('refresh-button');
+    errorRow.innerHTML =
+        '    <div class="bear-form-wrapper error-wrapper">\n' +
+        '        <h1 class="api-error-msg">Oups, une erreur est survenue.<br> Essayez de rafraichir la page svp ❤</h1>\n' +
+        '        <img src="assets/images/teddy-bear-head-down.png" alt="Ours en peluche renversé la tête en bas" class="api-error-img">\n' +
+        '        <button id="refresh-btn" type="button" aria-label="Bouton pour rafraîchir la page" class="refresh-button"></button>\n' +
+        '    </div>';
 };
 
 
