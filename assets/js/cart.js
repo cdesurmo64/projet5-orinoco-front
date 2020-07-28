@@ -8,11 +8,16 @@ let productColor;
 let productImageUrl;
 
 
-// Create an object 'order' containing all the info on the new order, convert it to JSON, store it on the localStorage
-// Todo: Transform the function to get the localStorage, check it, and push the new order at the end of the object collected from the localStorage
+/**
+ * Create an object 'order' containing all the info on the new order.
+ * Try to get the values for the 'cart' key from the localStorage.
+ * If they exist, put them on the allOrders array.
+ * Push the newOrder to the allOrders array.
+ * Store allOrders array content in the localStorage, with the 'cart' key
+ */
 const addToCart = function() {
 
-    const order = {
+    const newOrder = {
         _id: productId.innerText,
         name: productName.innerText,
         imageUrl: productImageUrl,
@@ -21,8 +26,15 @@ const addToCart = function() {
         quantity: productQuantity.value
     };
 
-    const stringOrder = JSON.stringify(order);
-    localStorage.setItem('newOrder', stringOrder);
-    console.log(localStorage.newOrder);
+    const previousOrders = localStorage.getItem('cart');
+    let allOrders = [];
+
+    if (previousOrders) {
+        allOrders = JSON.parse(previousOrders);
+    }
+
+    allOrders.push(newOrder);
+    localStorage.setItem('cart', JSON.stringify(allOrders));
+    //console.log(localStorage.newOrder);
 };
 

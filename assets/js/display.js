@@ -121,7 +121,7 @@ const displayCustomisationMenu = function (product) {
         '           <label class="quantity-form-label col-12 col-md-3" for="quantity-choices">Quantité :</label>' +
         '           <input type="number" id="quantity-choices" class="form-control col-7 col-md-3" value="1" min="1" max="10" required>' +
         '        </div>' +
-        '        <button id="btn-add-cart" class="btn btn-primary btn-add-cart btn-fireworks" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter Norbert<span class="add-to-cart-icon"></span></button>';
+        '        <button id="btn-add-cart" class="btn btn-primary btn-add-cart btn-fireworks" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
 
 
 
