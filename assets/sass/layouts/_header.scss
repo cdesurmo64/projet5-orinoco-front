@@ -16,23 +16,30 @@ header {
       }
     }
 
-    .cart-icon-nb-articles-wrapper {
-      background-color: $golden-light;
-      width: 2.3rem;
-      height: 2.3rem;
-      border-radius: 50%;
-      position: absolute;
-      top: 23px;
-      right: 27px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
+    .cart-icon {
+      position: fixed;
+      top: 0;
+      z-index: 50;
+      right: 0;
 
-    #cart-icon-nb-articles {
-      color: $dark;
-      font-weight: 700;
+      .cart-icon-nb-articles-wrapper {
+        background-color: $golden-light;
+        width: 2.3rem;
+        height: 2.3rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+      }
+
+      #cart-icon-nb-articles {
+        color: $dark;
+        font-weight: 700;
+      }
     }
   }
 
@@ -81,8 +88,13 @@ header {
         }
       }
 
-      .cart-icon-nb-articles-wrapper {
-        padding: 1.3rem;
+      .cart-icon {
+
+        .cart-icon-nb-articles-wrapper {
+          padding: 1.3rem;
+          top: 17px;
+          right: 17px;
+        }
       }
     }
   }
