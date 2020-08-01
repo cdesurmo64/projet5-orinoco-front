@@ -86,7 +86,8 @@ const addToCart = function() {
 document.addEventListener('click', function (event) {
 
     if (event.target && event.target.id === 'btn-add-cart') {
-        event.preventDefault(); //to avoid sending it to the server until it's fully functional
+        event.preventDefault(); //to avoid sending it to the server because no need for now
         addToCart();
+        displayNumberArticlesCartIcon();
     }
 });

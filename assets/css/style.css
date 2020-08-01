@@ -234,6 +234,23 @@ header .navbar .navbar-brand .brand-text {
   line-height: 6rem;
   margin-left: 1rem;
 }
+header .navbar .cart-icon-nb-articles-wrapper {
+  background-color: #D6A624;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 23px;
+  right: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+header .navbar #cart-icon-nb-articles {
+  color: #232F5C;
+  font-weight: 700;
+}
 @media (min-width: 430px) {
   header .navbar .navbar-brand img {
     height: 60px;
@@ -255,6 +272,9 @@ header .navbar .navbar-brand .brand-text {
   header .navbar .nav-link img {
     width: 85px;
     height: 85px;
+  }
+  header .navbar .cart-icon-nb-articles-wrapper {
+    padding: 1.3rem;
   }
 }
 

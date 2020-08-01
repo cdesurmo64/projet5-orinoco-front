@@ -108,19 +108,21 @@ const displayCustomisationMenu = function (product) {
     const customisationForm = document.createElement('form');
     productContainer.appendChild(customisationForm);
     customisationForm.classList.add('customisation-form');
+    customisationForm.setAttribute('method', 'get');
 
     customisationForm.innerHTML =
         '        <p class="customisation-form-title">Personnalisez votre commande</p>' +
         '        <div class="form-group color-form">' +
         '           <label class="color-form-label col-12 col-md-3" for="color-choices">Choisissez sa couleur :</label>' +
         '           <select class="form-control col-7 col-md-3" id="color-choices" required>' +
-        '                <option>- couleur -</option>' +
+        '                <option value="">- couleur -</option>' +
         '           </select>' +
         '        </div>' +
         '        <div class="form-group quantity-form">' +
         '           <label class="quantity-form-label col-12 col-md-3" for="quantity-choices">Quantité :</label>' +
         '           <input type="number" id="quantity-choices" class="form-control col-7 col-md-3" value="1" min="1" max="10" required>' +
         '        </div>' +
+        '           <input type="hidden" name="_id" value="' + product._id + '">' +
         '        <button id="btn-add-cart" class="btn btn-primary btn-add-cart btn-fireworks" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
 
 
@@ -138,5 +140,35 @@ const displayCustomisationMenu = function (product) {
     productQuantity = document.getElementById('quantity-choices');
     productColor = document.getElementById('color-choices');
 };
+
+
+
+
+/**
+ * Get the quantities of teddies added in the cart from the localStorage
+ * Sum all these quantities to have the total number of teddies in the cart
+ * and display it on the cart icon.
+ */
+const displayNumberArticlesCartIcon = function () {
+    const numberArticlesCartIcon = document.getElementById('cart-icon-nb-articles');
+    const teddiesInCart = JSON.parse(localStorage.getItem('cart'));
+    let nbTeddiesInCart = 0;
+
+    if (teddiesInCart) {
+        for (let teddyInCart of teddiesInCart)
+        {
+            nbTeddiesInCart += Number(teddyInCart.quantity);
+        }
+        numberArticlesCartIcon.textContent = nbTeddiesInCart;
+    }
+};
+
+// To execute displayNumberArticlesCartIcon() when DOM content is loaded (because it uses DOM elements)
+document.addEventListener('DOMContentLoaded', function (event) {
+    displayNumberArticlesCartIcon();
+});
+
+
+
 
 
