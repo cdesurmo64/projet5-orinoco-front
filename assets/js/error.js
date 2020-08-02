@@ -4,7 +4,7 @@
 
 
 // To refresh the page
-const refreshPage = () => {
+const refreshPage = function() {
     location.reload();
 };
 

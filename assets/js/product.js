@@ -52,7 +52,7 @@ let productImageUrl;
 
 /**
  * If the visitor has effectively selected a valid color option :
- * Create an object 'order' containing all the info on the new order.
+ * Create an object 'newOrder' containing all the info on the new order.
  * Try to get the values for the 'cart' key from the localStorage.
  * If they exist, put them on the allOrders array.
  * Push the newOrder to the allOrders array.
