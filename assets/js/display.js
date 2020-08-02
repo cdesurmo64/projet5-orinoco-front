@@ -115,7 +115,7 @@ const displayCustomisationMenu = function (product) {
         '        <div class="form-group color-form">' +
         '           <label class="color-form-label col-12 col-md-3" for="color-choices">Choisissez sa couleur :</label>' +
         '           <select class="form-control col-7 col-md-3" id="color-choices" required>' +
-        '                <option value="">- couleur -</option>' +
+        '                <option value="" selected disabled>- couleur -</option>' +
         '           </select>' +
         '        </div>' +
         '        <div class="form-group quantity-form">' +

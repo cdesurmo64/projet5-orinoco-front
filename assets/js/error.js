@@ -9,7 +9,7 @@ const refreshPage = () => {
 };
 
 
-// To listen to events on the element refresh-btn, which is dynamically created by JS
+// To execute refreshPage() when the refresh-btn (which is dynamically created by JS) is clicked
 document.addEventListener('click', function (event) {
 
     if (event.target && event.target.id === 'refresh-btn') {

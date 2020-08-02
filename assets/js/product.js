@@ -51,43 +51,50 @@ let productImageUrl;
 
 
 /**
- * When the btn-add-cart is clicked :
+ * If the visitor has effectively selected a valid color option :
  * Create an object 'order' containing all the info on the new order.
  * Try to get the values for the 'cart' key from the localStorage.
  * If they exist, put them on the allOrders array.
  * Push the newOrder to the allOrders array.
  * Store allOrders array content in the localStorage, with the 'cart' key
  */
-const addToCart = function() {
+const addToCart = function(event) {
 
-    const newOrder = {
-        _id: productId.innerText,
-        name: productName.innerText,
-        imageUrl: productImageUrl,
-        price: productPrice.innerText,
-        color: productColor.value,
-        quantity: productQuantity.value
-    };
+    let productColorValue;
+    productColorValue = productColor.value;
 
-    const previousOrders = localStorage.getItem('cart');
-    let allOrders = [];
+    if (productColorValue !== '') {
 
-    if (previousOrders) {
-        allOrders = JSON.parse(previousOrders);
+        event.preventDefault(); // Execute only in this condition to keep native HTML5 form validation features in case the visitor did not pick a valid color option. Is used here to prevent sending the form data.
+
+        const newOrder = {
+            _id: productId.innerText,
+            name: productName.innerText,
+            imageUrl: productImageUrl,
+            price: productPrice.innerText,
+            color: productColor.value,
+            quantity: productQuantity.value
+        };
+
+        const previousOrders = localStorage.getItem('cart');
+        let allOrders = [];
+
+        if (previousOrders) {
+            allOrders = JSON.parse(previousOrders);
+        }
+
+        allOrders.push(newOrder);
+        localStorage.setItem('cart', JSON.stringify(allOrders));
     }
-
-    allOrders.push(newOrder);
-    localStorage.setItem('cart', JSON.stringify(allOrders));
-    //console.log(localStorage.newOrder);
 };
 
 
-// To listen to events on the element btn-add-cart, which is dynamically created by JS
+// To execute addToCart() and then displayNumberArticlesCartIcon() when the element btn-add-cart
+// (which is dynamically created by JS) is clicked
 document.addEventListener('click', function (event) {
 
     if (event.target && event.target.id === 'btn-add-cart') {
-        event.preventDefault(); //to avoid sending it to the server because no need for now
-        addToCart();
+        addToCart(event);
         displayNumberArticlesCartIcon();
     }
 });
