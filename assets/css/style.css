@@ -382,6 +382,70 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   color: #9C6870;
 }
 
+.cart-card {
+  border-radius: 13px !important;
+}
+.cart-card .card-title {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: "Wonderkids", cursive;
+  font-size: 3rem;
+}
+.cart-card #cart-table {
+  margin-top: 2rem;
+}
+.cart-card #cart-table td, .cart-card #cart-table th {
+  vertical-align: middle;
+  text-align: center;
+}
+.cart-card #cart-table .cart-item-img {
+  width: 50px;
+}
+.cart-card #cart-table .cart-item-name {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+.cart-card #cart-table .order-full-price-txt-cell {
+  text-align: right;
+}
+.cart-card #cart-table .order-full-price-number-cell {
+  white-space: nowrap;
+  color: #9C6870;
+}
+.cart-card #cart-table .cart-table-empty-msg-cell {
+  padding: 2rem;
+  color: #8F7019;
+}
+@media (min-width: 768px) {
+  .cart-card .card-title {
+    font-size: 5rem;
+  }
+  .cart-card #cart-table {
+    margin-top: 4rem;
+    font-size: 2rem;
+  }
+  .cart-card #cart-table .cart-item-img-name-cell {
+    display: flex;
+    align-items: center;
+  }
+  .cart-card #cart-table .cart-item-img-name-cell .cart-item-img {
+    width: 120px;
+  }
+  .cart-card #cart-table .cart-item-img-name-cell .cart-item-name-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+  .cart-card #cart-table .cart-item-img-name-cell .cart-item-name-wrapper .cart-item-name {
+    font-size: 2rem;
+  }
+  .cart-card #cart-table .order-full-price-txt-cell {
+    padding-right: 2rem;
+  }
+  .cart-card #cart-table .cart-table-empty-msg-cell {
+    padding: 4rem;
+  }
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

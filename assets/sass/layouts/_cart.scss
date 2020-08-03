@@ -1,0 +1,85 @@
+// Mobile&Up
+.cart-card {
+  border-radius: 13px!important;
+
+  .card-title {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: $wonderkids;
+    font-size: 3rem;
+  }
+
+  #cart-table {
+    margin-top: 2rem;
+
+    td, th {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .cart-item-img {
+      width: 50px;
+    }
+
+    .cart-item-name {
+      font-size: 1.6rem;
+      font-weight: normal;
+    }
+
+    .order-full-price-txt-cell {
+      text-align: right;
+    }
+
+    .order-full-price-number-cell {
+      white-space: nowrap;
+      color: $purple-text;
+    }
+
+    // Empty cart style
+    .cart-table-empty-msg-cell {
+      padding: 2rem;
+      color: $golden;
+    }
+  }
+
+
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    .card-title {
+      font-size: 5rem;
+    }
+
+    #cart-table {
+      margin-top: 4rem;
+      font-size: 2rem;
+
+      .cart-item-img-name-cell {
+        display: flex;
+        align-items: center;
+
+        .cart-item-img {
+          width: 120px;
+        }
+
+        .cart-item-name-wrapper {
+          text-align: center;
+          width: 100%;
+
+          .cart-item-name {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .order-full-price-txt-cell {
+        padding-right: 2rem;
+      }
+
+      // Empty cart style
+      .cart-table-empty-msg-cell {
+        padding: 4rem;
+      }
+    }
+  }
+}
+

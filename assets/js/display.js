@@ -170,5 +170,52 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
 
+/**
+ * Display important information about one ordered item (i.e. one teddy of one color) in a cart page table row.
+ */
+const displayCartItemInformation = function (itemInCart) {
 
+    const cartTableContent = document.getElementById('cart-table-content');
+    const cartTableContentOneItemRow = document.createElement('tr');
+    cartTableContent.appendChild(cartTableContentOneItemRow);
+    cartTableContentOneItemRow.classList.add('cart-table-item-row');
+
+    const itemInCartFullPrice = itemInCart.price * itemInCart.quantity;
+
+    cartTableContentOneItemRow.innerHTML =
+        '        <td>' +
+        '           <a href="product.html?_id=' + itemInCart._id +'">' +
+        '               <div class="cart-item-img-name-cell">' +
+        '                   <div class="cart-item-img-wrapper">' +
+        '                       <img class="cart-item-img" src=\"' + itemInCart.imageUrl + '\" alt=\"Photographie du teddy bear se trouvant dans le panier\">' +
+        '                   </div>' +
+        '                   <div class="cart-item-name-wrapper">' +
+        '                       <h2 class="cart-item-name">' + itemInCart.name + '</h2>' +
+        '                   </div>' +
+        '               </div>' +
+        '           </a>' +
+        '        </td>' +
+        '        <td class="cart-item-color">' + itemInCart.color + '</td>' +
+        '        <td class="cart-item-unitary-price">' + itemInCart.price + '</td>' +
+        '        <td class="cart-item-quantity">' + itemInCart.quantity + '</td>' +
+        '        <td class="cart-item-full-price">' + itemInCartFullPrice + '</td>'
+};
+
+
+/**
+ * Display a message saying that the cart is empty in a cell in a new row of the cart table
+ */
+const displayEmptyCartMessage = function () {
+
+    const cartTableContent = document.getElementById('cart-table-content');
+
+    const cartTableContentEmptyCartRow = document.createElement('tr');
+    cartTableContent.appendChild(cartTableContentEmptyCartRow);
+
+    const cartTableContentEmptyCartCell = document.createElement('td');
+    cartTableContentEmptyCartRow.appendChild(cartTableContentEmptyCartCell);
+    cartTableContentEmptyCartCell.classList.add('cart-table-empty-msg-cell');
+    cartTableContentEmptyCartCell.setAttribute('colspan', '5');
+    cartTableContentEmptyCartCell.textContent = 'Votre panier est actuellement vide ☹';
+};
 
