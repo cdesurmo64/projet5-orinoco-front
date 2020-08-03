@@ -397,6 +397,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 .cart-card #cart-table td, .cart-card #cart-table th {
   vertical-align: middle;
   text-align: center;
+  padding: 0.5rem;
 }
 .cart-card #cart-table .cart-item-img {
   width: 50px;
@@ -423,6 +424,9 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   .cart-card #cart-table {
     margin-top: 4rem;
     font-size: 2rem;
+  }
+  .cart-card #cart-table td, .cart-card #cart-table th {
+    padding: 0.75rem;
   }
   .cart-card #cart-table .cart-item-img-name-cell {
     display: flex;
