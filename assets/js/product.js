@@ -61,9 +61,11 @@ let productImageUrl;
 const addToCart = function(event) {
 
     let productColorValue;
+    let productQuantityValue;
     productColorValue = productColor.value;
+    productQuantityValue = productQuantity.value;
 
-    if (productColorValue !== '') {
+    if (productColorValue !== '' && productQuantityValue >= 1 && productQuantityValue <= 10) {
 
         event.preventDefault(); // Execute only in this condition to keep native HTML5 form validation features in case the visitor did not pick a valid color option. Is used here to prevent sending the form data.
 
