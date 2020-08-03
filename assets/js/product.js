@@ -60,10 +60,8 @@ let productImageUrl;
  */
 const addToCart = function(event) {
 
-    let productColorValue;
-    let productQuantityValue;
-    productColorValue = productColor.value;
-    productQuantityValue = productQuantity.value;
+    let productColorValue = productColor.value;
+    let productQuantityValue = Number(productQuantity.value);
 
     if (productColorValue !== '' && productQuantityValue >= 1 && productQuantityValue <= 10 && Number.isInteger(productQuantityValue)) {
 
