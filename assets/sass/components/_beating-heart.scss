@@ -38,6 +38,9 @@
   background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
 }
 
+.broken-heart-icon-black {
+  background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
+}
 
 .btn-select:hover {
   .beating-heart-icon {
@@ -46,5 +49,9 @@
 
   .heart-icon-love-pink {
     background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+  }
+
+  .broken-heart-icon-black {
+    background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
   }
 }

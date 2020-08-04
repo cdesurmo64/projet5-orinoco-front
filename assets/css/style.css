@@ -93,11 +93,18 @@ html body {
   background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
 }
 
+.broken-heart-icon-black {
+  background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
+}
+
 .btn-select:hover .beating-heart-icon {
   animation: pulseHeart 1s ease infinite;
 }
 .btn-select:hover .heart-icon-love-pink {
   background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+}
+.btn-select:hover .broken-heart-icon-black {
+  background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
 }
 
 .add-to-cart-icon {
@@ -287,6 +294,7 @@ header .navbar .cart-icon #cart-icon-nb-articles {
 }
 
 footer {
+  margin-top: auto;
   border-top: 2px solid #8F7019;
   padding: 1.5rem;
 }
@@ -416,6 +424,14 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 .cart-card #cart-table .cart-table-empty-msg-cell {
   padding: 2rem;
   color: #8F7019;
+}
+.cart-card .cart-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.cart-card .cart-buttons-wrapper .home-page-button-wrapper {
+  margin-right: 4rem;
 }
 @media (min-width: 768px) {
   .cart-card .card-title {

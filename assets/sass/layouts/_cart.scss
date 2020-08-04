@@ -43,6 +43,16 @@
     }
   }
 
+  .cart-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+    .home-page-button-wrapper {
+      margin-right: 4rem;
+    }
+  }
+
 
   // Tablet&Up
   @media (min-width: $tablet) {
