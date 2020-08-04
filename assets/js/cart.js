@@ -76,7 +76,6 @@ const hideEmptyCartButton = function() {
 
     const emptyCartButton = document.getElementById('empty-cart-button');
     const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
-    console.log(allItemsInCart);
 
     if (allItemsInCart == null) {
         emptyCartButton.classList.add('d-none');
