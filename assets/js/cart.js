@@ -25,6 +25,7 @@ const showAllItemsInCart = function() {
 }
 
 
+
 ;/**
  * Remove all the content from the cart table body to reset it
  * And reset the order full price to 0 €
@@ -40,11 +41,6 @@ const resetCartTable = function () {
         orderFullPrice.textContent = '0';
     };
 
-
-// To execute showAllItemsInCart() when DOM content is loaded (because it uses DOM elements)
-document.addEventListener('DOMContentLoaded', function (event) {
-    showAllItemsInCart();
-});
 
 
 /**
@@ -71,6 +67,32 @@ const emptyCart = function() {
     }
 };
 
+
+
+/**
+ * Add the d-none class to the Empty Cart Button if there is nothing in the cart
+ */
+const hideEmptyCartButton = function() {
+
+    const emptyCartButton = document.getElementById('empty-cart-button');
+    const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
+    console.log(allItemsInCart);
+
+    if (allItemsInCart == null) {
+        emptyCartButton.classList.add('d-none');
+    }
+};
+
+
+
+
+// EVENT LISTENERS :
+
+// To execute showAllItemsInCart() and hideEmptyCartButton() when DOM content is loaded (because it uses DOM elements)
+document.addEventListener('DOMContentLoaded', function (event) {
+    showAllItemsInCart();
+    hideEmptyCartButton();
+});
 
 
 // To execute emptyCart() when the empty-cart-button element is clicked
