@@ -6,6 +6,9 @@ html body {
   font-size: 1.6rem;
   margin: 0;
   background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 html body h1 {
   margin: 0;
@@ -19,17 +22,18 @@ html body a {
 html body a:hover {
   text-decoration: none;
 }
-html body .bg-stains {
+html body.bg-stains {
   background-image: url("../images/paint-splash-gold.png");
   background-repeat: repeat;
+  background-position: top 75px right;
 }
 html body main {
   padding-bottom: 17rem;
 }
-html body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@media (min-width: 768px) {
+  html body.bg-stains {
+    background-position: top 91px right;
+  }
 }
 
 @font-face {

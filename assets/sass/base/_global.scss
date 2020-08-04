@@ -6,6 +6,9 @@ html {
     font-size: 1.6rem;
     margin: 0;
     background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     h1 {
       margin: 0;
@@ -23,9 +26,10 @@ html {
       }
     }
 
-    .bg-stains {
+    &.bg-stains {
       background-image: url("../images/paint-splash-gold.png");
       background-repeat: repeat;
+      background-position: top 75px right;
     }
 
     main {
@@ -33,11 +37,14 @@ html {
     }
   }
 
-  //For tests on background :
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    body {
+
+      &.bg-stains {
+        background-position: top 91px right;
+      }
+    }
   }
 }
 
