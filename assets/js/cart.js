@@ -1,3 +1,5 @@
+// FUNCTIONS
+
 /**
  * Get all the items in the cart and their information from the localStorage 'cart'
  * If there is at least one item : execute displayCartItemInformation() for each item found & calculate the whole order price
@@ -64,6 +66,7 @@ const emptyCart = function() {
         resetCartTable();
         showAllItemsInCart();
         displayNumberArticlesCartIcon();
+        hideEmptyCartButton();
     }
 };
 
