@@ -1,6 +1,58 @@
 // FUNCTIONS
 
 /**
+ * Display important information about one ordered item (i.e. one teddy of one color) in a cart page table row.
+ */
+const displayCartItemInformation = function (itemInCart) {
+
+    const cartTableContent = document.getElementById('cart-table-content');
+    const cartTableContentOneItemRow = document.createElement('tr');
+    cartTableContent.appendChild(cartTableContentOneItemRow);
+    cartTableContentOneItemRow.classList.add('cart-table-item-row');
+
+    const itemInCartFullPrice = itemInCart.price * itemInCart.quantity;
+
+    cartTableContentOneItemRow.innerHTML =
+        '        <td>' +
+        '           <a href="product.html?_id=' + itemInCart._id +'">' +
+        '               <div class="cart-item-img-name-cell">' +
+        '                   <div class="cart-item-img-wrapper">' +
+        '                       <img class="cart-item-img" src=\"' + itemInCart.imageUrl + '\" alt=\"Photographie du teddy bear se trouvant dans le panier\">' +
+        '                   </div>' +
+        '                   <div class="cart-item-name-wrapper">' +
+        '                       <h2 class="cart-item-name">' + itemInCart.name + '</h2>' +
+        '                   </div>' +
+        '               </div>' +
+        '           </a>' +
+        '        </td>' +
+        '        <td class="cart-item-color">' + itemInCart.color + '</td>' +
+        '        <td class="cart-item-unitary-price">' + itemInCart.price + '</td>' +
+        '        <td class="cart-item-quantity">' + itemInCart.quantity + '</td>' +
+        '        <td class="cart-item-full-price">' + itemInCartFullPrice + '</td>'
+};
+
+
+
+/**
+ * Display a message saying that the cart is empty in a cell in a new row of the cart table
+ */
+const displayEmptyCartMessage = function () {
+
+    const cartTableContent = document.getElementById('cart-table-content');
+
+    const cartTableContentEmptyCartRow = document.createElement('tr');
+    cartTableContent.appendChild(cartTableContentEmptyCartRow);
+
+    const cartTableContentEmptyCartCell = document.createElement('td');
+    cartTableContentEmptyCartRow.appendChild(cartTableContentEmptyCartCell);
+    cartTableContentEmptyCartCell.classList.add('cart-table-empty-msg-cell');
+    cartTableContentEmptyCartCell.setAttribute('colspan', '5');
+    cartTableContentEmptyCartCell.textContent = 'Votre panier est actuellement vide ☹';
+};
+
+
+
+/**
  * Get all the items in the cart and their information from the localStorage 'cart'
  * If there is at least one item : execute displayCartItemInformation() for each item found & calculate the whole order price
  * If there is none : execute displayEmptyCartMessage()
@@ -24,11 +76,11 @@ const showAllItemsInCart = function() {
     else {
         displayEmptyCartMessage();
     }
-}
+};
 
 
 
-;/**
+/**
  * Remove all the content from the cart table body to reset it
  * And reset the order full price to 0 €
  */
@@ -42,6 +94,21 @@ const resetCartTable = function () {
         }
         orderFullPrice.textContent = '0';
     };
+
+
+
+/**
+ * Add the d-none class to the Empty Cart Button if there is nothing in the cart
+ */
+const hideEmptyCartButton = function() {
+
+    const emptyCartButton = document.getElementById('empty-cart-button');
+    const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
+
+    if (allItemsInCart == null) {
+        emptyCartButton.classList.add('d-none');
+    }
+};
 
 
 
@@ -72,18 +139,6 @@ const emptyCart = function() {
 
 
 
-/**
- * Add the d-none class to the Empty Cart Button if there is nothing in the cart
- */
-const hideEmptyCartButton = function() {
-
-    const emptyCartButton = document.getElementById('empty-cart-button');
-    const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
-
-    if (allItemsInCart == null) {
-        emptyCartButton.classList.add('d-none');
-    }
-};
 
 
 
