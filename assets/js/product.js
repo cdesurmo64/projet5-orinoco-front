@@ -57,6 +57,7 @@ let productImageUrl;
  * If they exist, put them on the allOrders array.
  * Push the newOrder to the allOrders array.
  * Store allOrders array content in the localStorage, with the 'cart' key
+ * Finally, execute displayNumberArticlesCartIcon() to update the article number displayed on the cart icon.
  */
 const addToCart = function(event) {
 
@@ -91,7 +92,7 @@ const addToCart = function(event) {
 };
 
 
-// To execute addToCart() and then displayNumberArticlesCartIcon() when the element btn-add-cart
+// To execute addToCart() when the element btn-add-cart
 // (which is dynamically created by JS) is clicked
 document.addEventListener('click', function (event) {
 
