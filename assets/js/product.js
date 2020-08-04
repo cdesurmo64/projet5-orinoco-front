@@ -85,6 +85,8 @@ const addToCart = function(event) {
 
         allOrders.push(newOrder);
         localStorage.setItem('cart', JSON.stringify(allOrders));
+
+        displayNumberArticlesCartIcon();
     }
 };
 
@@ -95,6 +97,5 @@ document.addEventListener('click', function (event) {
 
     if (event.target && event.target.id === 'btn-add-cart') {
         addToCart(event);
-        displayNumberArticlesCartIcon();
     }
 });
