@@ -1,6 +1,42 @@
-// To get URL parameters (the ID)
-const urlParams = new URLSearchParams(window.location.search);
-const currentProductId = urlParams.get('_id');
+// To get the ID of the product currently displayed from the URL parameters
+
+const getCurrentProductId = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('_id');
+};
+
+// To get the information about the product added to the cart
+
+const getProductPrice = function() {
+    const productPrice = document.getElementById('product-price');
+    return productPrice.innerText;
+};
+
+const getProductName = function() {
+    const productName = document.getElementById('product-name');
+    return productName.innerText;
+};
+
+const getProductId = function() {
+    const productId = document.getElementById('product-id');
+    return productId.innerText;
+};
+
+const getProductQuantity = function() {
+    const productQuantity = document.getElementById('quantity-choices');
+    return productQuantity.value;
+};
+
+const getProductColor = function() {
+    const getProductColor = document.getElementById('color-choices');
+    return getProductColor.value;
+};
+
+const getProductImageUrl = function() {
+    const productImage = document.getElementById('product-image');
+    return productImage.getAttribute('src');
+};
+
 
 
 /**
@@ -10,7 +46,7 @@ const currentProductId = urlParams.get('_id');
 const displayAllProductInfo = async function () {
 
     try {
-        let response = await fetch('http://localhost:3000/api/teddies/' + currentProductId);
+        let response = await fetch('http://localhost:3000/api/teddies/' + getCurrentProductId());
 
         if (response.ok) {
             let product = await response.json();
@@ -37,23 +73,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
 
-
-
-
-// Declaration of variables needed by addToCart()
-// They are initialised where the elements are created in display.js
-let productPrice;
-let productName;
-let productId;
-let productQuantity;
-let productColor;
-let productImageUrl;
-
-
 /**
- * If the visitor has effectively selected a valid color option :
+ * Prevent the form data tu be submitted and the page reloaded.
  * Create an object 'newOrder' containing all the info on the new order.
- * Try to get the values for the 'cart' key from the localStorage.
+ * Try to get previous orders information from the localStorage 'cart'.
  * If they exist, put them on the allOrders array.
  * Push the newOrder to the allOrders array.
  * Store allOrders array content in the localStorage, with the 'cart' key
@@ -61,20 +84,15 @@ let productImageUrl;
  */
 const addToCart = function(event) {
 
-    let productColorValue = productColor.value;
-    let productQuantityValue = Number(productQuantity.value);
-
-    if (productColorValue !== '' && productQuantityValue >= 1 && productQuantityValue <= 10 && Number.isInteger(productQuantityValue)) {
-
-        event.preventDefault(); // Execute only in this condition to keep native HTML5 form validation features in case the visitor did not pick a valid color option. Is used here to prevent sending the form data.
+        event.preventDefault(); // To prevent sending the form data and reloading the page
 
         const newOrder = {
-            _id: productId.innerText,
-            name: productName.innerText,
-            imageUrl: productImageUrl,
-            price: productPrice.innerText,
-            color: productColor.value,
-            quantity: productQuantity.value
+            _id: getProductId(),
+            name: getProductName(),
+            imageUrl: getProductImageUrl(),
+            price: getProductPrice(),
+            color: getProductColor(),
+            quantity: getProductQuantity()
         };
 
         const previousOrders = localStorage.getItem('cart');
@@ -88,15 +106,16 @@ const addToCart = function(event) {
         localStorage.setItem('cart', JSON.stringify(allOrders));
 
         displayNumberArticlesCartIcon();
-    }
 };
 
 
-// To execute addToCart() when the element btn-add-cart
-// (which is dynamically created by JS) is clicked
-document.addEventListener('click', function (event) {
+// To execute addToCart() when the form element 'customisation-form'
+// (which is dynamically created by JS) is submitted
 
-    if (event.target && event.target.id === 'btn-add-cart') {
+document.addEventListener('submit', function (event) {
+
+    if (event.target && event.target.id === 'customisation-form') {
         addToCart(event);
     }
 });
+

@@ -87,13 +87,6 @@ const displayProductInfo = function (product) {
         '                                    </div>' +
         '                                </div>' +
         '                            </article>';
-
-
-    productPrice = document.getElementById('product-price');
-    productName = document.getElementById('product-name');
-    productId = document.getElementById('product-id');
-    let productImage = document.getElementById('product-image');
-    productImageUrl = productImage.getAttribute('src');
 };
 
 
@@ -109,6 +102,7 @@ const displayCustomisationMenu = function (product) {
     productContainer.appendChild(customisationForm);
     customisationForm.classList.add('customisation-form');
     customisationForm.setAttribute('method', 'get');
+    customisationForm.setAttribute('id', 'customisation-form');
 
     customisationForm.innerHTML =
         '        <p class="customisation-form-title">Personnalisez votre commande</p>' +
@@ -136,9 +130,6 @@ const displayCustomisationMenu = function (product) {
         colorCustomisationOption.setAttribute('value', color);
         colorCustomisationOption.textContent = color;
     }
-
-    productQuantity = document.getElementById('quantity-choices');
-    productColor = document.getElementById('color-choices');
 };
 
 
