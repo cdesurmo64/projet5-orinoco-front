@@ -1,0 +1,34 @@
+.contact-form-text {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+
+  &::before {
+    border-top: solid 2px $night-blue;
+    content: "";
+    display: inline-block;
+    width: 20%;
+    padding-top: 3rem;
+  }
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+
+  input, textarea {
+    margin-bottom: 2rem;
+  }
+
+  #submit-contact-form {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+

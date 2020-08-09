@@ -470,6 +470,35 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   }
 }
 
+.contact-form-text {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.contact-form-text::before {
+  border-top: solid 2px #232F5C;
+  content: "";
+  display: inline-block;
+  width: 20%;
+  padding-top: 3rem;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+#contact-form input, #contact-form textarea {
+  margin-bottom: 2rem;
+}
+#contact-form #submit-contact-form {
+  display: block;
+  margin: 0 auto;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

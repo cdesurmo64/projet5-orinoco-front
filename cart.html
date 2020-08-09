@@ -70,6 +70,25 @@
                                     </div>
                                 </div>
 
+                                <p class="contact-form-text">Afin de valider votre commande, merci de remplir le formulaire suivant :</p>
+                                <form id="contact-form">
+                                    <label for="first-name">Prénom</label>
+                                    <input type="text" name="first-name" id="first-name" pattern="[^0-9]+" required>
+
+                                    <label for="last-name">Nom</label>
+                                    <input type="text" name="last-name" id="last-name" pattern="[^0-9]+" required>
+
+                                    <label for="address">Adresse</label>
+                                    <textarea type="text" name="address" id="address" cols="25" rows="3" required maxlength="500"></textarea>
+
+                                    <label for="city">Ville</label>
+                                    <input type="text" name="city" id="city" pattern="[^0-9]+" required maxlength="100">
+
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" required>
+
+                                    <button type="submit" id="submit-contact-form" class="btn btn-primary">Envoyer</button>
+                                </form>
                             </div>
                         </div>
                     </div>
