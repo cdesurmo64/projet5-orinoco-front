@@ -1,0 +1,100 @@
+// Mobile&Up
+.confirmation-card {
+  border-radius: 13px !important;
+  border: solid 5px $light !important;
+
+  .confirmation-title {
+    font-family: $wonderkids;
+    font-size: 3rem;
+    color: $night-blue;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .card-text-and-icon {
+    margin-top: 1rem;
+    text-align: center;
+
+    .icon-teddy-happy {
+      display: none;
+    }
+
+    #buyer-name, #teddies-number {
+      color: $purple-text;
+      font-weight: 600;
+    }
+
+    .happy {
+      font-weight: 600;
+      color: $golden;
+    }
+
+    .order-resume {
+      margin-top: 3rem;
+      border: solid 2px $golden;
+
+      &__title {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $golden;
+      }
+
+      &__content {
+        text-align: left;
+        margin-left: 1rem;
+        font-weight: 600;
+
+
+        #order-id, #order-price {
+          color: $purple-text;
+        }
+      }
+    }
+  }
+
+  .big-teddy-wrapper {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    margin-top: 4rem;
+    padding: 1rem;
+
+    .card-body {
+      margin-bottom: 2rem;
+    }
+
+    .confirmation-title {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-content-wrapper {
+      display: flex;
+      justify-content: space-around;
+
+      .card-text-and-icon {
+        order: 2;
+        font-size: 2rem;
+        margin-top: 8rem;
+
+        .icon-teddy-happy {
+          display: inline-block;
+          margin-top: 4rem;
+        }
+
+        .order-resume {
+          margin-top: 5rem;
+        }
+      }
+
+      .big-teddy-wrapper {
+        order: 1;
+      }
+    }
+  }
+}

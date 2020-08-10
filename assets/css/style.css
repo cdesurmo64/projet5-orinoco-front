@@ -397,7 +397,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 .cart-card {
   border-radius: 13px !important;
 }
-.cart-card .card-title {
+.cart-card .cart-title {
   margin-top: 1rem;
   text-align: center;
   font-family: "Wonderkids", cursive;
@@ -438,7 +438,10 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   margin-right: 4rem;
 }
 @media (min-width: 768px) {
-  .cart-card .card-title {
+  .cart-card {
+    margin-top: 4rem;
+  }
+  .cart-card .cart-title {
     font-size: 5rem;
   }
   .cart-card #cart-table {
@@ -497,6 +500,87 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 #contact-form #submit-contact-form {
   display: block;
   margin: 0 auto;
+}
+
+.confirmation-card {
+  border-radius: 13px !important;
+  border: solid 5px #EFD0D7 !important;
+}
+.confirmation-card .confirmation-title {
+  font-family: "Wonderkids", cursive;
+  font-size: 3rem;
+  color: #232F5C;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.confirmation-card .card-text-and-icon {
+  margin-top: 1rem;
+  text-align: center;
+}
+.confirmation-card .card-text-and-icon .icon-teddy-happy {
+  display: none;
+}
+.confirmation-card .card-text-and-icon #buyer-name, .confirmation-card .card-text-and-icon #teddies-number {
+  color: #9C6870;
+  font-weight: 600;
+}
+.confirmation-card .card-text-and-icon .happy {
+  font-weight: 600;
+  color: #8F7019;
+}
+.confirmation-card .card-text-and-icon .order-resume {
+  margin-top: 3rem;
+  border: solid 2px #8F7019;
+}
+.confirmation-card .card-text-and-icon .order-resume__title {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #8F7019;
+}
+.confirmation-card .card-text-and-icon .order-resume__content {
+  text-align: left;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+.confirmation-card .card-text-and-icon .order-resume__content #order-id, .confirmation-card .card-text-and-icon .order-resume__content #order-price {
+  color: #9C6870;
+}
+.confirmation-card .big-teddy-wrapper {
+  margin-top: 3rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .confirmation-card {
+    margin-top: 4rem;
+    padding: 1rem;
+  }
+  .confirmation-card .card-body {
+    margin-bottom: 2rem;
+  }
+  .confirmation-card .confirmation-title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+  .confirmation-card .card-content-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  .confirmation-card .card-content-wrapper .card-text-and-icon {
+    order: 2;
+    font-size: 2rem;
+    margin-top: 8rem;
+  }
+  .confirmation-card .card-content-wrapper .card-text-and-icon .icon-teddy-happy {
+    display: inline-block;
+    margin-top: 4rem;
+  }
+  .confirmation-card .card-content-wrapper .card-text-and-icon .order-resume {
+    margin-top: 5rem;
+  }
+  .confirmation-card .card-content-wrapper .big-teddy-wrapper {
+    order: 1;
+  }
 }
 
 /*!
