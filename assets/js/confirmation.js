@@ -1,14 +1,15 @@
 // FUNCTIONS
 
 /**
- * Displays confirmed order information on the confirmation page
+ * Gets confirmed order information from three items in the localStorage : 'orderResume', 'orderTotalPrice', 'orderTotalQuantity'
+ * and displays these info on the confirmation page
  */
 const displayConfirmedOrderInformation = function () {
 
-    const orderResume = JSON.parse(localStorage.getItem('orderResume'));
+    // Gets the confirmed order information from the localStorage items
+    const orderResume = JSON.parse(localStorage.getItem('orderResume')); // Contains 'products', 'contact' and 'orderId'
     const orderTotalPrice = JSON.parse(localStorage.getItem('orderTotalPrice'));
     const orderTotalQuantity = JSON.parse(localStorage.getItem('orderTotalQuantity'));
-
 
     const buyerName = document.getElementById('buyer-name');
     const teddiesNumber = document.getElementById('teddies-number');
