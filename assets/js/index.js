@@ -1,7 +1,7 @@
 // FUNCTIONS
 
 /**
- * Create a new item wrapper and display the info of one teddy as an item card inside
+ * Creates a new item wrapper and displays the info of one teddy as an item card inside
  */
 const displayTeddyInfo = function (teddy) {
     const itemListContainer = document.getElementById('item-list-container');
@@ -36,8 +36,9 @@ const displayTeddyInfo = function (teddy) {
 
 
 /**
- * To request info on every teddy in the API, and display the received info on an item card for each teddy
- * or display an error message and a refresh button when the API send nothing
+ * Requests info on every teddy to the API, and displays the received info on an item card for each teddy
+ * or executes displayErrorApi() if the communication with the API fails or if the API answer does not come
+ * with a 200 status code
  */
 const displayAllTeddiesInfo = async function () {
     try {

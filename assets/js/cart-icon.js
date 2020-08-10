@@ -1,11 +1,11 @@
 // FUNCTION
 
 /**
- * Get the quantities of teddies added in the cart from the localStorage
- * If there is at least one teddy in the cart :
- * sum all these quantities to have the total number of teddies in the cart.
- * If there is none : the number of teddies in cart remains equal to 0
- * Finally : display the nb of teddies in cart on the cart icon in the header.
+ * Gets the quantities of teddies added in the cart from the localStorage
+ * -> If there is at least one teddy in the cart :
+ *    sums all these quantities to have the total number of teddies in the cart.
+ * -> If there is none : the number of teddies in cart remains equal to 0
+ * Finally : displays the nb of teddies in cart on the cart icon in the header.
  */
 const displayNumberArticlesCartIcon = function () {
     const numberArticlesCartIcon = document.getElementById('cart-icon-nb-articles');
