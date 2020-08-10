@@ -32,8 +32,8 @@ const getProductQuantity = function() {
 };
 
 const getProductColor = function() {
-    const getProductColor = document.getElementById('color-choices');
-    return getProductColor.value;
+    const ProductColor = document.getElementById('color-choices');
+    return ProductColor.value;
 };
 
 const getProductImageUrl = function() {
@@ -139,8 +139,8 @@ const displayAllProductInfo = async function () {
 
             displayProductInfo(product);
             displayProductCustomisationMenu(product);
-
         }
+
         else {
             displayApiError();
         }
@@ -215,9 +215,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 
-// To execute addToCart() when the form element 'customisation-form'
-// (which is dynamically created by JS) is submitted
-
+// To execute addToCart() when the form element 'customisation-form' (which is dynamically created by JS) is submitted
 document.addEventListener('submit', function (event) {
 
     if (event.target && event.target.id === 'customisation-form') {
