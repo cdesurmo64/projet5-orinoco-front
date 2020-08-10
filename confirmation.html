@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>Title</title>
+
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+
+    <body class="bg-dark bg-stains">
+        <header class="bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col navbar navbar-dark">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/teddy-bear-heart-icon.svg" width="55" height="55" alt="Logo Oribear représentant un ours en peluche dans un cercle rose"/>
+                            <span class="brand-text">Oribear</span>
+                        </a>
+
+                        <a class="nav-link cart-icon" href="cart.html">
+                            <img src="assets/images/shopping-cart-colorful.svg" width="70" height="70" alt="Icone panier d'achat"/>
+                            <div class="cart-icon-nb-articles-wrapper">
+                                <span id="cart-icon-nb-articles">0</span>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-11 my-5 mx-lg-auto">
+                        <div class="confirmation-card card bg-white shadow">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h1 class="cart-title card-title">Votre commande est confirmée ! </h1>
+                                    <p class="greetings">Merci <span id="buyer-name"></span>, vous avez rendu <span id="teddies-number">1</span> ours en peluche heureux</p>
+
+                                    <article id="order-resume">
+                                        <p>Récapitulatif de votre commande</p>
+                                        <div class="order-resume-info">
+                                            <p>Référence : <span id="order-id"></span></p>
+                                            <p>Montant total : <span id="order-price"></span></p>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="image-wrapper">
+                                    <img src="./assets/images/ted-standing.png" alt="Ours en peluche heureux debout">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4 legal-link">
+                        <a href="#" target="_blank">Mentions légales</a>
+                    </div>
+                    <div class="col-4 socials">
+                        <a href="#" target="_blank">Suivez-nous</a>
+                    </div>
+                    <div class="col-4 contact">
+                        <a href="mailto:cdesurmo@gmail.com">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="assets/js/error.js"></script>
+        <script src="assets/js/cart-icon.js"></script>
+        <script src="assets/js/confirmation.js"></script>
+    </body>
+</html>

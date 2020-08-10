@@ -86,13 +86,17 @@ const displayEmptyCartMessage = function () {
 
 /**
  * Gets all the items in the cart and their information from the localStorage 'cart'
- * If there is at least one item : executes displayCartItemInformation() for each item found,
- * calculates the whole order price , stores it on the localStorage, and displays it on the resume cart table.
- * If there is none : executes displayEmptyCartMessage()
+ *  -> If there is at least one item -> for each item found :
+ *      - executes displayCartItemInformation()
+ *      - calculates the total number of teddies in the cart & stores it on the localStorage
+ *      - calculates the total order price, stores it on the localStorage, & displays it on the resume cart table
+ *
+ *  -> If there is none -> executes displayEmptyCartMessage()
  */
-const showAllItemsInCart = function() {
+const showAllItemsInCartAndStoreCartInformation = function() {
 
-    let fullPrice = 0;
+    let totalPrice = 0;
+    let totalQuantity = 0;
     const orderFullPrice = document.getElementById('order-full-price');
     const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
 
@@ -101,10 +105,12 @@ const showAllItemsInCart = function() {
         for (let itemInCart of allItemsInCart)
         {
             displayCartItemInformation(itemInCart);
-            fullPrice += Number(itemInCart.price * itemInCart.quantity);
+            totalQuantity += Number(itemInCart.quantity);
+            totalPrice += Number(itemInCart.price * itemInCart.quantity);
         }
-        localStorage.setItem('orderFullPrice', JSON.stringify(fullPrice)); // Stores the order full price in the localStorage 'orderFullPrice'
-        orderFullPrice.textContent = fullPrice.toString();
+        localStorage.setItem('orderTotalQuantity', JSON.stringify(totalQuantity)); // Stores the order total quantity of teddies in the localStorage 'orderTotalQuantity'
+        localStorage.setItem('orderTotalPrice', JSON.stringify(totalPrice)); // Stores the order total price in the localStorage 'orderTotalPrice'
+        orderFullPrice.textContent = totalPrice.toString();
     }
 
     else {
@@ -155,7 +161,7 @@ const hideEmptyCartButtonAndContactForm = function() {
  * If there is a 'cart' in the localStorage :
  * - Empties the cart by removing the 'cart' item from the localStorage.
  * - Resets the cart table content by executing resetCartTable().
- * - Executes showAllItemsInCart() that check if the localStorage is effectively empty
+ * - Executes showAllItemsInCartAndStoreCartInformation() that check if the localStorage is effectively empty
  *   and displays the empty cart message.
  * - Executes displayNumberArticlesCartIcon() that check if the localStorage is effectively empty
  *   and resets the number of article displayed in the cart icon to 0.
@@ -170,7 +176,7 @@ const emptyCart = function() {
     if (allItemsInCart) {
         localStorage.removeItem('cart');
         resetCartTable();
-        showAllItemsInCart();
+        showAllItemsInCartAndStoreCartInformation();
         displayNumberArticlesCartIcon();
         hideEmptyCartButtonAndContactForm();
     }
@@ -278,9 +284,9 @@ const submitOrder = async function (event) {
 
 // EVENT LISTENERS :
 
-// To execute showAllItemsInCart() and hideEmptyCartButtonAndContactForm() when DOM content is loaded (because it uses DOM elements)
+// To execute showAllItemsInCartAndStoreCartInformation() and hideEmptyCartButtonAndContactForm() when DOM content is loaded (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
-    showAllItemsInCart();
+    showAllItemsInCartAndStoreCartInformation();
     hideEmptyCartButtonAndContactForm();
 });
 
