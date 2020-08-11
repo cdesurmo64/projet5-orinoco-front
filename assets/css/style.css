@@ -28,7 +28,7 @@ html body.bg-stains {
   background-position: top 75px right;
 }
 html body main {
-  padding-bottom: 17rem;
+  padding-bottom: 8rem;
 }
 @media (min-width: 768px) {
   html body.bg-stains {
@@ -161,7 +161,7 @@ html body main {
 }
 .bear-form-wrapper {
   background-color: #ffffff;
-  margin: 1rem auto 3rem;
+  margin: 3rem auto 5rem;
   padding: 1rem;
   border: solid 5px #EFD0D7;
   border-radius: 25px;
@@ -179,6 +179,14 @@ html body main {
   width: 30rem;
 }
 
+.welcome-bear-wrapper {
+  flex: 0 0 92.5%;
+  max-width: 51rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .bear-form-wrapper {
     background: url(../images/bear-head-form.svg) no-repeat center center;
@@ -188,13 +196,19 @@ html body main {
     border: none;
     border-radius: 0;
   }
+
+  .welcome-bear-wrapper {
+    flex: 0 0 0;
+    max-width: none;
+  }
 }
 .error-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto 3rem;
-  width: 80%;
+  margin: 3rem auto 3rem;
+  width: 90%;
+  max-width: 44rem;
   padding: 2rem;
 }
 .error-wrapper .api-error-img {
@@ -216,17 +230,14 @@ html body main {
   margin: 2rem 0;
 }
 
-@media (min-width: 430px) {
-  .error-wrapper {
-    width: auto;
-  }
-}
 @media (min-width: 768px) {
   .error-wrapper {
     margin: 0 auto 5rem;
     padding: 18rem 18rem 16rem;
     border: none;
     border-radius: 0;
+    width: auto;
+    max-width: none;
   }
   .error-wrapper .refresh-button {
     margin: 3rem 0 -2rem;
@@ -247,7 +258,7 @@ header .navbar .navbar-brand .brand-text {
 }
 header .navbar .cart-icon {
   position: fixed;
-  top: 0;
+  top: -4px;
   z-index: 50;
   right: 0;
 }

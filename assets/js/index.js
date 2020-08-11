@@ -8,7 +8,7 @@ const displayTeddyInfo = function (teddy) {
     const newItemWrapper = document.createElement('div');
 
     itemListContainer.appendChild(newItemWrapper);
-    newItemWrapper.classList.add('col-12', 'col-lg-8', 'my-5', 'mx-lg-auto');
+    newItemWrapper.classList.add('col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
 
     // Todo : Vérifier que les clés existent et que les valeurs assoc ne sont pas vides
 
@@ -47,7 +47,7 @@ const displayAllTeddiesInfo = async function () {
     try {
         let response = await fetch('http://localhost:3000/api/teddies/');
 
-        if (response.ok) {
+        if (response.ok && false) {
             let teddies = await response.json();
 
             for (let teddy of teddies) {

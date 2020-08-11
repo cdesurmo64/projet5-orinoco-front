@@ -1,7 +1,7 @@
 // Mobile&Up
 .bear-form-wrapper {
   background-color: $white;
-  margin: 1rem auto 3rem;
+  margin: 3rem auto 5rem;
   padding: 1rem;
   border: solid 5px $light;
   border-radius: 25px;
@@ -23,6 +23,15 @@
   }
 }
 
+.welcome-bear-wrapper {
+  flex: 0 0 92.5%;
+  max-width: 51rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+
 // Tablet&Up
 @media (min-width: $tablet) {
 
@@ -33,6 +42,11 @@
     padding: 11rem 18rem 8rem;
     border: none;
     border-radius: 0;
+  }
+
+  .welcome-bear-wrapper {
+    flex: 0 0 0;
+    max-width: none;
   }
 }
 
