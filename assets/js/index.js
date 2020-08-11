@@ -47,7 +47,7 @@ const displayAllTeddiesInfo = async function () {
     try {
         let response = await fetch('http://localhost:3000/api/teddies/');
 
-        if (response.ok && false) {
+        if (response.ok) {
             let teddies = await response.json();
 
             for (let teddy of teddies) {
