@@ -1,17 +1,18 @@
 // Mobile&Up
 
 #title-container {
-  background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
-  background-size: contain;
-  padding: 13rem 20rem;
+  background-color: $white;
+  border: solid 5px $light;
+  border-radius: 25px;
+  max-width: 93.8%;
 
   .product-page-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: center;
     font-family: $wonderkids;
-    color: $dark;
+    color: $night-blue;
 
-    .hyphen {
+    .symbols {
       font-family: $sans-serif;
     }
   }
@@ -19,7 +20,6 @@
 
 
 #product-container {
-
   .card {
     border-radius: 15px;
   }
@@ -35,7 +35,6 @@
   .product-info {
     margin: 1.5rem;
 
-
     .product-name {
       font-family: $teddy;
       font-size: 4rem;
@@ -48,7 +47,6 @@
       font-size: 1.4rem;
       font-style: italic;
       margin-bottom: 4.5rem;
-
     }
 
     .product-description {
@@ -70,8 +68,18 @@
 // Tablet&Up
 @media (min-width: $tablet) {
 
+  #title-container {
+    background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+    background-size: contain;
+    padding: 13rem 20rem;
+    border: none;
+    border-radius: 0;
+    max-width: none;
 
-
+    .product-page-title {
+      font-size: 4rem;
+    }
+  }
 }
 
 

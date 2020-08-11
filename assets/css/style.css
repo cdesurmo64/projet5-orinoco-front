@@ -182,8 +182,8 @@ html body main {
 .welcome-bear-wrapper {
   flex: 0 0 92.5%;
   max-width: 51rem;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   text-align: center;
 }
 
@@ -358,17 +358,18 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 
 #title-container {
-  background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
-  background-size: contain;
-  padding: 13rem 20rem;
+  background-color: #ffffff;
+  border: solid 5px #EFD0D7;
+  border-radius: 25px;
+  max-width: 93.8%;
 }
 #title-container .product-page-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
   font-family: "Wonderkids", cursive;
   color: #232F5C;
 }
-#title-container .product-page-title .hyphen {
+#title-container .product-page-title .symbols {
   font-family: "Arial", sans-serif;
 }
 
@@ -405,6 +406,19 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   color: #9C6870;
 }
 
+@media (min-width: 768px) {
+  #title-container {
+    background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+    background-size: contain;
+    padding: 13rem 20rem;
+    border: none;
+    border-radius: 0;
+    max-width: none;
+  }
+  #title-container .product-page-title {
+    font-size: 4rem;
+  }
+}
 .cart-card {
   border-radius: 13px !important;
 }
