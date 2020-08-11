@@ -13,8 +13,7 @@ const displayNumberArticlesCartIcon = function () {
     let nbTeddiesInCart = 0;
 
     if (teddiesInCart) {
-        for (let teddyInCart of teddiesInCart)
-        {
+        for (let teddyInCart of teddiesInCart) {
             nbTeddiesInCart += Number(teddyInCart.quantity);
         }
     }

@@ -53,7 +53,6 @@ const displayProductInfo = function (product) {
 
     productContainer.appendChild(newProductWrapper);
     newProductWrapper.classList.add('col-12', 'col-lg-10', 'my-5', 'mx-lg-auto');
-
     newProductWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -115,7 +114,6 @@ const displayProductCustomisationMenu = function (product) {
     for (let color of product.colors)
     {
         const colorCustomisationSelect = document.getElementById('color-choices');
-
         const colorCustomisationOption = document.createElement('option');
         colorCustomisationSelect.appendChild(colorCustomisationOption);
         colorCustomisationOption.setAttribute('value', color);
@@ -140,9 +138,7 @@ const displayAllProductInfo = async function () {
 
             displayProductInfo(product);
             displayProductCustomisationMenu(product);
-        }
-
-        else {
+        } else {
             displayApiError();
         }
     }

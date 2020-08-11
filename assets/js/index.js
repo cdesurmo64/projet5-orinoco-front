@@ -10,6 +10,9 @@ const displayTeddyInfo = function (teddy) {
     itemListContainer.appendChild(newItemWrapper);
     newItemWrapper.classList.add('col-12', 'col-lg-8', 'my-5', 'mx-lg-auto');
 
+    // Todo : Vérifier que les clés existent et que les valeurs assoc ne sont pas vides
+
+
     newItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -50,8 +53,8 @@ const displayAllTeddiesInfo = async function () {
             for (let teddy of teddies) {
                 displayTeddyInfo(teddy);
             }
-        }
-        else {
+
+        } else {
             displayApiError();
         }
     }

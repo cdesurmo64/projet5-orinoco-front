@@ -102,8 +102,7 @@ const showAllItemsInCartAndStoreCartInformation = function() {
 
     if (allItemsInCart) {
 
-        for (let itemInCart of allItemsInCart)
-        {
+        for (let itemInCart of allItemsInCart) {
             displayCartItemInformation(itemInCart);
             totalQuantity += Number(itemInCart.quantity);
             totalPrice += Number(itemInCart.price * itemInCart.quantity);
@@ -111,9 +110,8 @@ const showAllItemsInCartAndStoreCartInformation = function() {
         localStorage.setItem('orderTotalQuantity', JSON.stringify(totalQuantity)); // Stores the order total quantity of teddies in the localStorage 'orderTotalQuantity'
         localStorage.setItem('orderTotalPrice', JSON.stringify(totalPrice)); // Stores the order total price in the localStorage 'orderTotalPrice'
         orderFullPrice.textContent = totalPrice.toString();
-    }
 
-    else {
+    } else {
         displayEmptyCartMessage();
     }
 };
@@ -264,12 +262,9 @@ const submitOrder = async function (event) {
                 localStorage.setItem('orderResume', JSON.stringify(orderResume)); // Stores API answer in the localStorage
                 window.location.href = 'confirmation.html?orderId=' + orderResume.orderId; // Redirects to the confirmation page for this order
                 emptyCart()
-            }
-
-            else {
+            } else {
                 displayApiError();
             }
-
         }
 
         catch (e) {
