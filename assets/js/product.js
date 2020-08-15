@@ -52,7 +52,7 @@ const displayProductInfo = function (product) {
     const newProductWrapper = document.createElement('div');
 
     productContainer.appendChild(newProductWrapper);
-    newProductWrapper.classList.add('col-12', 'col-lg-10', 'my-5', 'mx-lg-auto');
+    newProductWrapper.classList.add('col-12', 'col-lg-10', 'mx-lg-auto');
     newProductWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -108,7 +108,7 @@ const displayProductCustomisationMenu = function (product) {
         '           <input type="number" id="quantity-choices" class="form-control col-7 col-md-3" value="1" min="1" max="10" step="1" required>' +
         '        </div>' +
         '           <input type="hidden" name="_id" value="' + product._id + '">' +
-        '        <button id="btn-add-cart" class="btn btn-primary btn-add-cart btn-fireworks" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
+        '        <button id="btn-add-cart" class="btn-common" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
 
 
     for (let color of product.colors)
@@ -195,7 +195,7 @@ const addToCart = function (event) {
     }
 
     localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
-    displayNumberArticlesCartIcon();
+    displayNumberArticlesCartIcon(true);
 };
 
 

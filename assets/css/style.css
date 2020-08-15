@@ -44,7 +44,7 @@ html body main {
   font-family: "Wonderkids";
   src: url("../fonts/wonderkids.woff2") format("woff2"), url("../fonts/wonderkids.woff") format("woff");
 }
-#item-list-container .btn-select {
+.btn-common {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,10 +54,42 @@ html body main {
   color: #ffffff;
   font-size: 1.7rem;
   border-radius: 2rem;
+  border: #8F7019;
+  background-color: #8F7019;
 }
-#item-list-container .btn-select:hover {
+.btn-common:hover {
   background-color: #232F5C;
-  border-color: #232F5C;
+  border: #232F5C;
+  color: #ffffff;
+}
+
+.btn-select .heart-icon-love-pink {
+  background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
+}
+.btn-select:hover .beating-heart-icon {
+  animation: pulseHeart 1s ease infinite;
+}
+.btn-select:hover .heart-icon-love-pink {
+  background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+}
+.btn-select:hover .broken-heart-icon-white {
+  background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
+}
+
+#btn-add-cart .add-to-cart-icon {
+  width: 2.3rem;
+  height: 3.5rem;
+  margin-left: 1rem;
+  display: block;
+  position: relative;
+  background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+}
+#btn-add-cart:hover .add-to-cart-icon {
+  background: url("../images/icon-add-to-cart-hover.svg") no-repeat center center/contain;
+}
+
+#empty-cart-button .broken-heart-icon-white {
+  background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
 }
 
 @keyframes pulseHeart {
@@ -93,31 +125,23 @@ html body main {
   border-radius: 100%;
 }
 
-.heart-icon-love-pink {
-  background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(214, 166, 36, 0.7);
+  }
+  70% {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 10px rgba(214, 166, 36, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(214, 166, 36, 0);
+  }
 }
-
-.broken-heart-icon-black {
-  background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
-}
-
-.btn-select:hover .beating-heart-icon {
-  animation: pulseHeart 1s ease infinite;
-}
-.btn-select:hover .heart-icon-love-pink {
-  background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
-}
-.btn-select:hover .broken-heart-icon-black {
-  background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
-}
-
-.add-to-cart-icon {
-  width: 1.5rem;
-  height: 3rem;
-  margin-left: 1rem;
-  display: block;
-  position: relative;
-  background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+.circle-pulse {
+  transform: scale(1);
+  animation: pulse 1s infinite;
 }
 
 .customisation-form {
@@ -134,7 +158,7 @@ html body main {
 .customisation-form .customisation-form-title {
   font-weight: 700;
   font-size: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .customisation-form .color-form #color-choices, .customisation-form .color-form #quantity-choices, .customisation-form .quantity-form #color-choices, .customisation-form .quantity-form #quantity-choices {
   font-size: 1.6rem;
@@ -143,6 +167,9 @@ html body main {
   margin: 1rem auto;
 }
 .customisation-form .quantity-form {
+  margin-top: 3rem;
+}
+.customisation-form #btn-add-cart {
   margin-top: 3rem;
 }
 

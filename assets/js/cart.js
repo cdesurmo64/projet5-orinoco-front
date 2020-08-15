@@ -175,7 +175,7 @@ const emptyCart = function() {
         localStorage.removeItem('cart');
         resetCartTable();
         showAllItemsInCartAndStoreCartInformation();
-        displayNumberArticlesCartIcon();
+        displayNumberArticlesCartIcon(true);
         hideEmptyCartButtonAndContactForm();
     }
 };

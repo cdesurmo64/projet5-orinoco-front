@@ -13,7 +13,7 @@
   .customisation-form-title {
     font-weight: 700;
     font-size: 1.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .color-form, .quantity-form {
@@ -27,6 +27,10 @@
   }
 
   .quantity-form {
+    margin-top: 3rem;
+  }
+
+  #btn-add-cart {
     margin-top: 3rem;
   }
 }

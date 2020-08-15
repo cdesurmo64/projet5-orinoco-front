@@ -1,0 +1,72 @@
+.btn-common {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0.2rem 1.7rem;
+  margin: 1rem auto;
+  color: $white;
+  font-size: 1.7rem;
+  border-radius: 2rem;
+  border: $golden;
+  background-color: $golden;
+
+  &:hover {
+    background-color: $night-blue;
+    border: $night-blue;
+    color: $white;
+  }
+}
+
+
+// Select button = button on home page to open a teddy product page
+.btn-select {
+  .heart-icon-love-pink {
+    background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
+  }
+
+  &:hover {
+    .beating-heart-icon {
+      animation: pulseHeart 1s ease infinite;
+    }
+
+    .heart-icon-love-pink {
+      background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+    }
+
+    .broken-heart-icon-white {
+      background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
+    }
+  }
+}
+
+
+// Add to cart button = button on product page to add the wanted quantity of product of the selected color to the cart
+#btn-add-cart {
+  .add-to-cart-icon {
+    width: 2.3rem;
+    height: 3.5rem;
+    margin-left: 1rem;
+    display: block;
+    position: relative;
+    background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+  }
+
+  &:hover {
+    .add-to-cart-icon {
+      background: url("../images/icon-add-to-cart-hover.svg") no-repeat center center/contain;
+    }
+  }
+}
+
+
+// Empty cart button = button on cart page to empty the cart
+#empty-cart-button {
+  .broken-heart-icon-white {
+    background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
+  }
+}
+
+
+
+
