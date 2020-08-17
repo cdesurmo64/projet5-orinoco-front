@@ -44,8 +44,8 @@ const getProductImageUrl = function() {
 
 
 /**
- * Creates a new product wrapper and displays all the info of the product
- * (indicated as the function parameter) as an item card inside
+ * Creates a new product wrapper inside the product container and displays all the 
+ * info of the product (indicated as the function parameter) as an item card inside
  */
 const displayProductInfo = function (product) {
     const productContainer = document.getElementById('product-container');
@@ -87,10 +87,10 @@ const displayProductInfo = function (product) {
  * and another form group to chose the wanted product quantity
  */
 const displayProductCustomisationMenu = function (product) {
-    const productContainer = document.querySelector('.product-info .card-text');
+    const productInfoText = document.querySelector('.product-info .card-text');
 
     const customisationForm = document.createElement('form');
-    productContainer.appendChild(customisationForm);
+    productInfoText.appendChild(customisationForm);
     customisationForm.classList.add('customisation-form');
     customisationForm.setAttribute('method', 'get');
     customisationForm.setAttribute('id', 'customisation-form');
@@ -108,7 +108,7 @@ const displayProductCustomisationMenu = function (product) {
         '           <input type="number" id="quantity-choices" class="form-control col-7 col-md-3" value="1" min="1" max="10" step="1" required>' +
         '        </div>' +
         '           <input type="hidden" name="_id" value="' + product._id + '">' +
-        '        <button id="btn-add-cart" class="btn-common" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
+        '        <button id="btn-add-cart" class="btn-common btn-colors" type="submit" aria-label="Bouton pour ajouter le teddy au panier">Adopter ' + product.name + '<span class="add-to-cart-icon"></span></button>';
 
 
     for (let color of product.colors)
@@ -121,6 +121,19 @@ const displayProductCustomisationMenu = function (product) {
     }
 };
 
+
+/**
+ * Creates a button to go back to the home page at the end of the product card
+ */
+
+const displayBackToHomeButton = function () {
+    const productCardBody = document.querySelector('#product-container .card-body');
+
+    const backHomeButtonWrapper = document.createElement('div');
+    productCardBody.appendChild(backHomeButtonWrapper);
+    backHomeButtonWrapper.classList.add('home-page-button-wrapper');
+    backHomeButtonWrapper.innerHTML = '<a id="btn-back-home" class="btn-common btn-inverted-colors" href="index.html">Revoir les teddies<span class="teddy-bear-head-icon"></span></a>\n';
+};
 
 
 /**
@@ -138,6 +151,7 @@ const displayAllProductInfo = async function () {
 
             displayProductInfo(product);
             displayProductCustomisationMenu(product);
+            displayBackToHomeButton();
         } else {
             displayApiError();
         }

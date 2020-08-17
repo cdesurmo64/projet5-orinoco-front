@@ -51,29 +51,40 @@ html body main {
   width: fit-content;
   padding: 0.2rem 1.7rem;
   margin: 1rem auto;
-  color: #ffffff;
   font-size: 1.7rem;
   border-radius: 2rem;
+}
+
+.btn-colors {
+  color: #ffffff;
   border: #8F7019;
   background-color: #8F7019;
 }
-.btn-common:hover {
-  background-color: #232F5C;
-  border: #232F5C;
+.btn-colors:hover {
   color: #ffffff;
+  border: #232F5C;
+  background-color: #232F5C;
 }
 
-.btn-select .heart-icon-love-pink {
+.btn-inverted-colors {
+  color: #8F7019;
+  border: 1px solid #8F7019;
+  background-color: #ffffff;
+}
+.btn-inverted-colors:hover {
+  color: #232F5C;
+  border: 1px solid #232F5C;
+  background-color: #ffffff;
+}
+
+#btn-select .heart-icon-love-pink, #btn-submit-order .heart-icon-love-pink {
   background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
 }
-.btn-select:hover .beating-heart-icon {
+#btn-select:hover .beating-heart-icon, #btn-submit-order:hover .beating-heart-icon {
   animation: pulseHeart 1s ease infinite;
 }
-.btn-select:hover .heart-icon-love-pink {
+#btn-select:hover .heart-icon-love-pink, #btn-submit-order:hover .heart-icon-love-pink {
   background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
-}
-.btn-select:hover .broken-heart-icon-white {
-  background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
 }
 
 #btn-add-cart .add-to-cart-icon {
@@ -82,14 +93,56 @@ html body main {
   margin-left: 1rem;
   display: block;
   position: relative;
-  background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+  background: url("../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
 }
 #btn-add-cart:hover .add-to-cart-icon {
-  background: url("../images/icon-add-to-cart-hover.svg") no-repeat center center/contain;
+  background: url("../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
 }
 
-#empty-cart-button .broken-heart-icon-white {
-  background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
+#btn-back-home {
+  text-align: center;
+  width: 150px;
+}
+#btn-back-home .teddy-bear-head-icon {
+  width: 2.3rem;
+  height: 3rem;
+  background: url("../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
+}
+#btn-back-home:hover .teddy-bear-head-icon {
+  background: url("../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
+}
+@media (min-width: 768px) {
+  #btn-back-home {
+    width: 21.1rem;
+  }
+  #btn-back-home .teddy-bear-head-icon {
+    margin-left: 1rem;
+  }
+}
+
+#btn-empty-cart {
+  text-align: center;
+  width: 150px;
+}
+#btn-empty-cart .broken-heart-icon-white {
+  width: 2.3rem;
+  height: 3rem;
+  margin-left: 0;
+  background: url("../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
+}
+#btn-empty-cart:hover .beating-heart-icon {
+  animation: pulseHeart 1s ease infinite;
+}
+#btn-empty-cart:hover .broken-heart-icon-white {
+  background: url("../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
+}
+@media (min-width: 768px) {
+  #btn-empty-cart {
+    width: 21.1rem;
+  }
+  #btn-empty-cart .broken-heart-icon-white {
+    margin-left: 1rem;
+  }
 }
 
 @keyframes pulseHeart {
@@ -432,6 +485,13 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 #product-container .product-info .product-price__number {
   color: #9C6870;
 }
+#product-container .home-page-button-wrapper #btn-back-home {
+  margin: 6rem 0 0 1rem;
+  width: fit-content;
+}
+#product-container .home-page-button-wrapper #btn-back-home .teddy-bear-head-icon {
+  margin-left: 1rem;
+}
 
 @media (min-width: 768px) {
   #title-container {
@@ -445,6 +505,10 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   #title-container .product-page-title {
     font-size: 4rem;
   }
+
+  #product-container .home-page-button-wrapper #btn-back-home {
+    margin: 5rem 0 0 1rem;
+  }
 }
 .cart-card {
   border-radius: 13px !important;
@@ -453,10 +517,11 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   margin-top: 1rem;
   text-align: center;
   font-family: "Wonderkids", cursive;
+  color: #232F5C;
   font-size: 3rem;
 }
 .cart-card #cart-table {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 .cart-card #cart-table td, .cart-card #cart-table th {
   vertical-align: middle;
@@ -483,11 +548,8 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 .cart-card .cart-buttons-wrapper {
   display: flex;
-  justify-content: center;
-  margin-top: 5rem;
-}
-.cart-card .cart-buttons-wrapper .home-page-button-wrapper {
-  margin-right: 4rem;
+  justify-content: space-around;
+  margin-top: 3rem;
 }
 @media (min-width: 768px) {
   .cart-card {
@@ -523,6 +585,12 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   .cart-card #cart-table .cart-table-empty-msg-cell {
     padding: 4rem;
   }
+  .cart-card .cart-buttons-wrapper {
+    justify-content: center;
+  }
+  .cart-card .cart-buttons-wrapper .home-page-button-wrapper {
+    margin-right: 3rem;
+  }
 }
 
 .contact-form-text {
@@ -531,27 +599,28 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  font-weight: 700;
+  margin-bottom: 3rem;
 }
 .contact-form-text::before {
   border-top: solid 2px #232F5C;
   content: "";
   display: inline-block;
   width: 20%;
-  padding-top: 3rem;
+  padding-top: 4rem;
 }
 
 #contact-form {
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
 }
 #contact-form input, #contact-form textarea {
   margin-bottom: 2rem;
 }
-#contact-form #submit-contact-form {
-  display: block;
-  margin: 0 auto;
+#contact-form #btn-submit-order {
+  margin-top: 3rem;
 }
 
 .confirmation-card {

@@ -6,11 +6,12 @@
     margin-top: 1rem;
     text-align: center;
     font-family: $wonderkids;
+    color: $night-blue;
     font-size: 3rem;
   }
 
   #cart-table {
-    margin-top: 2rem;
+    margin-top: 3rem;
 
     td, th {
       vertical-align: middle;
@@ -45,12 +46,8 @@
 
   .cart-buttons-wrapper {
     display: flex;
-    justify-content: center;
-    margin-top: 5rem;
-
-    .home-page-button-wrapper {
-      margin-right: 4rem;
-    }
+    justify-content: space-around;
+    margin-top: 3rem;
   }
 
 
@@ -95,6 +92,14 @@
       // Empty cart style
       .cart-table-empty-msg-cell {
         padding: 4rem;
+      }
+    }
+
+    .cart-buttons-wrapper {
+      justify-content: center;
+
+      .home-page-button-wrapper {
+        margin-right: 3rem;
       }
     }
   }

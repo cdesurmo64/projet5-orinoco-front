@@ -141,7 +141,7 @@ const resetCartTable = function () {
  */
 const hideEmptyCartButtonAndContactForm = function() {
 
-    const emptyCartButton = document.getElementById('empty-cart-button');
+    const emptyCartButton = document.getElementById('btn-empty-cart');
     const contactFormText = document.querySelector('.contact-form-text');
     const contactForm = document.getElementById('contact-form');
     const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
 // To execute emptyCart() when the empty-cart-button element is clicked
-const emptyCartButton = document.getElementById('empty-cart-button');
+const emptyCartButton = document.getElementById('btn-empty-cart');
 
 emptyCartButton.addEventListener('click', function () {
     emptyCart();

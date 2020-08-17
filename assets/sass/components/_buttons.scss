@@ -5,22 +5,37 @@
   width: fit-content;
   padding: 0.2rem 1.7rem;
   margin: 1rem auto;
-  color: $white;
   font-size: 1.7rem;
   border-radius: 2rem;
+}
+
+.btn-colors {
+  color: $white;
   border: $golden;
   background-color: $golden;
 
   &:hover {
-    background-color: $night-blue;
-    border: $night-blue;
     color: $white;
+    border: $night-blue;
+    background-color: $night-blue;
+  }
+}
+
+.btn-inverted-colors {
+  color: $golden;
+  border: 1px solid $golden;
+  background-color: $white;
+
+  &:hover {
+    color: $night-blue;
+    border: 1px solid $night-blue;
+    background-color: $white;
   }
 }
 
 
 // Select button = button on home page to open a teddy product page
-.btn-select {
+#btn-select, #btn-submit-order {
   .heart-icon-love-pink {
     background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
   }
@@ -32,10 +47,6 @@
 
     .heart-icon-love-pink {
       background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
-    }
-
-    .broken-heart-icon-white {
-      background: url("../images/icon-heartbreak-black.svg") no-repeat center center/contain;
     }
   }
 }
@@ -49,21 +60,74 @@
     margin-left: 1rem;
     display: block;
     position: relative;
-    background: url("../images/icon-add-to-cart.svg") no-repeat center center/contain;
+    background: url("../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
   }
 
   &:hover {
     .add-to-cart-icon {
-      background: url("../images/icon-add-to-cart-hover.svg") no-repeat center center/contain;
+      background: url("../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
+    }
+  }
+}
+
+
+// btn-back-home = button on product page & cart page to go back to home page
+#btn-back-home {
+  text-align: center;
+  width: 150px;
+
+  .teddy-bear-head-icon {
+    width: 2.3rem;
+    height: 3rem;
+    background: url("../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
+  }
+
+  &:hover {
+    .teddy-bear-head-icon {
+      background: url("../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
+    }
+  }
+
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    width: 21.1rem;
+
+    .teddy-bear-head-icon {
+      margin-left: 1rem;
     }
   }
 }
 
 
 // Empty cart button = button on cart page to empty the cart
-#empty-cart-button {
+#btn-empty-cart {
+  text-align: center;
+  width: 150px;
+
   .broken-heart-icon-white {
-    background: url("../images/icon-heartbreak-white.svg") no-repeat center center/contain;
+    width: 2.3rem;
+    height: 3rem;
+    margin-left: 0;
+    background: url("../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
+  }
+
+  &:hover {
+    .beating-heart-icon {
+      animation: pulseHeart 1s ease infinite;
+    }
+
+    .broken-heart-icon-white {
+      background: url("../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
+    }
+  }
+
+  // Tablet&Up
+  @media (min-width: $tablet) {
+    width: 21.1rem;
+
+    .broken-heart-icon-white {
+      margin-left: 1rem;
+    }
   }
 }
 
