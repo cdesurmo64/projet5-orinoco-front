@@ -1,4 +1,5 @@
-// FUNCTIONS
+// FUNCTIONS WHICH DISPLAY A LIST OF CARDS, EACH ONE CONTAINING
+// ONE TEDDY AND ITS INFO ON THE HOME PAGE
 
 /**
  * Creates a new item wrapper and displays the info of one teddy as an item card inside
@@ -70,7 +71,7 @@ const displayAllTeddiesInfo = async function () {
 
 // EVENT LISTENERS
 
-// To execute displayAllTeddiesInfo() when DOM content is loaded (because it uses DOM elements)
+// To execute displayAllTeddiesInfo() when DOM content is loaded in the home page (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
     displayAllTeddiesInfo();
 });

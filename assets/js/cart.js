@@ -1,35 +1,35 @@
-// FUNCTIONS
+// FUNCTIONS WHICH MANIPULATE / DISPLAY THE CART AND ITS INFO
 
 /**
- * Functions made to get and manipulate data that will be used in other functions
+ * Displays the back to home page button in the cart page 'cart-buttons-wrapper' element,
+ * before the 'empty-cart-button-wrapper' child element
  */
+const displayBackToHomeButton = function () {
+    const cartButtonsWrapper = document.querySelector('.cart-buttons-wrapper');
+    const emptyCartButton = document.querySelector('.empty-cart-button-wrapper');
 
-// To get the buyer's contact info from the text he entered in the contact form
-const getBuyerFirstName = function() {
-    const buyerFirstName = document.getElementById('first-name');
-    return buyerFirstName.value;
+    cartButtonsWrapper.insertBefore(createBackToHomeButton(), emptyCartButton);
 };
 
-const getBuyerLastName = function() {
-    const buyerLastName = document.getElementById('last-name');
-    return buyerLastName.value;
-};
 
-const getBuyerAddress = function() {
-    const buyerAddress = document.getElementById('address');
-    return buyerAddress.value;
-};
+/**
+ * Adds the d-none class to the Empty Cart Button, the introducing contact form text
+ * and the contact form if there is nothing in the cart to hide it so the visitor
+ * can't confirm an empty order or empty an already empty cart
+ */
+const hideEmptyCartButtonAndContactForm = function() {
 
-const getBuyerCity = function() {
-    const buyerCity = document.getElementById('city');
-    return buyerCity.value;
-};
+    const emptyCartButton = document.getElementById('btn-empty-cart');
+    const contactFormText = document.querySelector('.contact-form-text');
+    const contactForm = document.getElementById('contact-form');
+    const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
 
-const getBuyerEmail = function() {
-    const buyerEmail = document.getElementById('email');
-    return buyerEmail.value;
+    if (allItemsInCart == null) {
+        emptyCartButton.classList.add('d-none');
+        contactFormText.classList.add('d-none');
+        contactForm.classList.add('d-none');
+    }
 };
-
 
 
 /**
@@ -83,7 +83,6 @@ const displayEmptyCartMessage = function () {
 };
 
 
-
 /**
  * Gets all the items in the cart and their information from the localStorage 'cart'
  *  -> If there is at least one item -> for each item found :
@@ -117,6 +116,56 @@ const showAllItemsInCartAndStoreCartInformation = function() {
 };
 
 
+/**
+ * Adds the selected product to the cart, paying attention to the following points :
+ * - If the new order concerns THE SAME product-id/color combination as a previous order
+ *     -> updates the previous order quantity in the localStorage
+ * - If the new order concerns A NEW product-id/color combination compared to previous orders OR
+ *   if there isn't any previous order :
+ *     -> stores the new order and its details (along with previous orders if any) in the localStorage
+ * Finally, executes displayNumberArticlesCartIcon() to update the article number displayed on the cart icon
+ */
+const addToCart = function (event) {
+
+    event.preventDefault(); // To prevent sending the form data and reloading the page
+
+    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart
+    const newOrder = {
+        _id: document.getElementById('product-id').innerText,
+        name: document.getElementById('product-name').innerText,
+        imageUrl: document.getElementById('product-image').getAttribute('src'),
+        price: Number(document.getElementById('product-price').innerText),
+        color: document.getElementById('color-choices').value,
+        quantity: Number(document.getElementById('quantity-choices').value)
+    };
+
+    const previousOrders = localStorage.getItem('cart');
+    let allOrders = [];
+    let pushNewOrder = true;
+
+    // If previous orders were found in the localStorage
+    if (previousOrders) {
+        allOrders = JSON.parse(previousOrders); // Stores the previous orders in allOrders array
+
+        for (let previousOrder of allOrders) {
+
+            // If the new order concerns the SAME product of the SAME color as a previous order
+            if (newOrder._id === previousOrder._id && newOrder.color === previousOrder.color) {
+                previousOrder.quantity += newOrder.quantity; // Updates the quantity of the previous order in question by adding the new order quantity to it
+                pushNewOrder = false; // To not push the new order to allOrders array later
+            }
+        }
+    }
+
+    // If the new order concerns A NEW product-id/color combination OR if there isn't any previous order
+    if (pushNewOrder === true) {
+        allOrders.push(newOrder); // Pushes the new order to allOrders array
+    }
+
+    localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
+    displayNumberArticlesCartIcon(true);
+};
+
 
 /**
  * Removes all the content from the cart table body to reset it
@@ -132,27 +181,6 @@ const resetCartTable = function () {
         }
         orderFullPrice.textContent = '0';
     };
-
-
-
-/**
- * Adds the d-none class to the Empty Cart Button, the introducing contact form text
- * and the contact form if there is nothing in the cart, to hide it
- */
-const hideEmptyCartButtonAndContactForm = function() {
-
-    const emptyCartButton = document.getElementById('btn-empty-cart');
-    const contactFormText = document.querySelector('.contact-form-text');
-    const contactForm = document.getElementById('contact-form');
-    const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
-
-    if (allItemsInCart == null) {
-        emptyCartButton.classList.add('d-none');
-        contactFormText.classList.add('d-none');
-        contactForm.classList.add('d-none');
-    }
-};
-
 
 
 /**
@@ -182,121 +210,38 @@ const emptyCart = function() {
 
 
 
-/**
- * To save buyer's contact info in a variable called 'contact'
- */
-const saveBuyerContactInfo = function() {
-
-    // Create an object 'contact' containing all the buyer's contact info
-    const contact = {
-        firstName: getBuyerFirstName(),
-        lastName: getBuyerLastName(),
-        address: getBuyerAddress(),
-        city: getBuyerCity(),
-        email: getBuyerEmail(),
-    };
-
-    return contact;
-};
-
-
-
-/**
- * To save the ordered products ID in an array called 'products'
- */
-const saveOrderedProductsId = function() {
-
-    const products = [];
-    const allOrderedProducts = JSON.parse(localStorage.getItem('cart'));
-
-        for (let orderedProduct of allOrderedProducts) {
-            products.push(orderedProduct._id);
-        }
-
-    return products;
-};
-
-
-
-/**
- * To submit the order -> If there is a 'cart' in the localStorage :
- *  - Creates the 'data' variable which contains the 'contact' object and the 'products' array
- *  - Tries to post 'data' to the API
- *      -> If the request is successful :
- *          - Stores API answer in the localStorage as 'orderResume' -> it contains the 'contact' object, the 'products' array, and the 'orderID' variable
- *          - Redirects to the confirmation page for this order
- *          - Executes emptyCart() to empty the cart
- *
- *      -> If the communication with the API fails or if the answer does not come with a 200 status code : executes displayApiError()
- *
- * RQ : The button which needs to be clicked to submit the order is only visible
- * when there is something in the cart so no need for an 'else' action.
- */
-const submitOrder = async function (event) {
-
-    event.preventDefault(); // To prevent sending the form data and reloading the page
-    const allOrderedProducts = JSON.parse(localStorage.getItem('cart'));
-
-    // If there is something in the cart = if there is a 'cart' in the localStorage
-    if (allOrderedProducts) {
-
-        let data = {
-            contact: saveBuyerContactInfo(), // An object containing all the buyer's contact information
-            products: saveOrderedProductsId() // An array containing the IDs of all the ordered items
-        };
-
-        try {
-            let response = await fetch('http://localhost:3000/api/teddies/order',
-                {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
-
-            if (response.ok) {
-                let orderResume = await response.json();
-
-                localStorage.setItem('orderResume', JSON.stringify(orderResume)); // Stores API answer in the localStorage
-                window.location.href = 'confirmation.html?orderId=' + orderResume.orderId; // Redirects to the confirmation page for this order
-                emptyCart()
-            } else {
-                displayApiError();
-            }
-        }
-
-        catch (e) {
-            displayApiError();
-        }
-    }
-};
-
-
-
 
 
 // EVENT LISTENERS :
 
-// To execute showAllItemsInCartAndStoreCartInformation() and hideEmptyCartButtonAndContactForm() when DOM content is loaded (because it uses DOM elements)
+// To execute addToCart() when the product page 'customisation-form' element
+// (which is dynamically created by JS) is submitted
+document.addEventListener('submit', function (event) {
+
+    if (event.target && event.target.id === 'customisation-form') {
+        addToCart(event);
+    }
+});
+
+
+// To execute showAllItemsInCartAndStoreCartInformation(),
+// displayBackToHomeButton() and hideEmptyCartButtonAndContactForm()
+// when DOM content is loaded in the cart page (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
-    showAllItemsInCartAndStoreCartInformation();
-    hideEmptyCartButtonAndContactForm();
-});
+    const id = new URLSearchParams(window.location.search).get('_id');
+
+    // If we are on the cart page (= if there is no '_id' in the URL parameters)
+    if (!id) {
+        displayNumberArticlesCartIcon(false);
+        showAllItemsInCartAndStoreCartInformation();
+        displayBackToHomeButton();
+        hideEmptyCartButtonAndContactForm(); // If the cart is empty when the visitor goes on the cart page, the empty cart button and the contact form to confirm the order are not showed
 
 
-// To execute emptyCart() when the empty-cart-button element is clicked
-const emptyCartButton = document.getElementById('btn-empty-cart');
-
-emptyCartButton.addEventListener('click', function () {
-    emptyCart();
-});
-
-
-// To execute submitOrder() when the form element 'customisation-form' is submitted
-const buyerContactForm = document.getElementById('contact-form');
-
-buyerContactForm.addEventListener('submit', function (event) {
-    submitOrder(event);
+        // To execute emptyCart() when the cart page 'empty-cart-button' element is clicked
+        const emptyCartButton = document.getElementById('btn-empty-cart');
+        emptyCartButton.addEventListener('click', function () {
+            emptyCart();
+        });
+    }
 });

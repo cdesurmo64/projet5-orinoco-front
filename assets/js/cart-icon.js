@@ -1,16 +1,16 @@
-// FUNCTION
+// FUNCTION WHICH DISPLAYS INFO ON THE HEADER CART ICON
 
 /**
  * Gets the quantities of teddies added in the cart from the localStorage
- * 
+ *
  * -> If there is at least one teddy in the cart :
  *    sums all these quantities to have the total number of teddies in the cart.
  * -> If there is none : the number of teddies in cart remains equal to 0
- * 
- * -> If change_quantity_in_cart = true (= if the function is called from a function that 
+ *
+ * -> If change_quantity_in_cart = true (= if the function is called from a function that
  * changes the number of products in the cart) : adds the 'circle-pulse' animation class during 3sec
  * to the cart number wrapper element
- * 
+ *
  * Finally : displays the nb of teddies in cart on the cart icon in the header.
  */
 const displayNumberArticlesCartIcon = function (change_quantity_in_cart) {
@@ -31,7 +31,7 @@ const displayNumberArticlesCartIcon = function (change_quantity_in_cart) {
             numberArticlesCartIconWrapper.classList.remove('circle-pulse');
         }, 3000);
     }
-    
+
     numberArticlesCartIcon.textContent = nbTeddiesInCart.toString();
 };
 
@@ -39,8 +39,7 @@ const displayNumberArticlesCartIcon = function (change_quantity_in_cart) {
 
 
 
-
-// EVENT LISTENER
+// EVENT LISTENERS :
 
 // To execute displayNumberArticlesCartIcon() when DOM content is loaded (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {

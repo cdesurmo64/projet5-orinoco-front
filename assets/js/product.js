@@ -1,50 +1,7 @@
-// FUNCTIONS
+// FUNCTIONS WHICH DISPLAY THE INFO AND POSSIBLE CUSTOMISATION OF ONE PRODUCT ON THE PRODUCT PAGE
 
 /**
- * Functions made to get and manipulate data that will be used in other functions
- */
-
-// To get the ID of the product currently displayed from the URL parameters
-const getCurrentProductId = function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('_id');
-};
-
-// To get the details about the product to be added to the cart
-const getProductPrice = function() {
-    const productPrice = document.getElementById('product-price');
-    return Number(productPrice.innerText);
-};
-
-const getProductName = function() {
-    const productName = document.getElementById('product-name');
-    return productName.innerText;
-};
-
-const getProductId = function() {
-    const productId = document.getElementById('product-id');
-    return productId.innerText;
-};
-
-const getProductQuantity = function() {
-    const productQuantity = document.getElementById('quantity-choices');
-    return Number(productQuantity.value);
-};
-
-const getProductColor = function() {
-    const ProductColor = document.getElementById('color-choices');
-    return ProductColor.value;
-};
-
-const getProductImageUrl = function() {
-    const productImage = document.getElementById('product-image');
-    return productImage.getAttribute('src');
-};
-
-
-
-/**
- * Creates a new product wrapper inside the product container and displays all the 
+ * Creates a new product wrapper inside the product container and displays all the
  * info of the product (indicated as the function parameter) as an item card inside
  */
 const displayProductInfo = function (product) {
@@ -123,20 +80,6 @@ const displayProductCustomisationMenu = function (product) {
 
 
 /**
- * Creates a button to go back to the home page at the end of the product card
- */
-
-const displayBackToHomeButton = function () {
-    const productCardBody = document.querySelector('#product-container .card-body');
-
-    const backHomeButtonWrapper = document.createElement('div');
-    productCardBody.appendChild(backHomeButtonWrapper);
-    backHomeButtonWrapper.classList.add('home-page-button-wrapper');
-    backHomeButtonWrapper.innerHTML = '<a id="btn-back-home" class="btn-common btn-inverted-colors" href="index.html">Revoir les teddies<span class="teddy-bear-head-icon"></span></a>\n';
-};
-
-
-/**
  * Requests the info of the selected product to the API, and displays the received info on an item card
  * or executes displayErrorApi() if the communication with the API fails or if the API answer does not come
  * with a 200 status code
@@ -144,14 +87,17 @@ const displayBackToHomeButton = function () {
 const displayAllProductInfo = async function () {
 
     try {
-        let response = await fetch('http://localhost:3000/api/teddies/' + getCurrentProductId());
+        let response = await fetch('http://localhost:3000/api/teddies/' + new URLSearchParams(window.location.search).get('_id'));
 
         if (response.ok) {
             let product = await response.json();
 
             displayProductInfo(product);
             displayProductCustomisationMenu(product);
-            displayBackToHomeButton();
+
+            const productCardBody = document.querySelector('#product-container .card-body');
+            productCardBody.appendChild(createBackToHomeButton());
+
         } else {
             displayApiError();
         }
@@ -162,75 +108,13 @@ const displayAllProductInfo = async function () {
 };
 
 
-/**
- * Adds the selected product to the cart, paying attention to the following points :
- * - If the new order concerns THE SAME product-id/color combination as a previous order
- *     -> updates the previous order quantity in the localStorage
- * - If the new order concerns A NEW product-id/color combination compared to previous orders OR
- *   if there isn't any previous order :
- *     -> stores the new order and its details (along with previous orders if any) in the localStorage
- * Finally, executes displayNumberArticlesCartIcon() to update the article number displayed on the cart icon
- */
-const addToCart = function (event) {
-
-    event.preventDefault(); // To prevent sending the form data and reloading the page
-
-    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart
-    const newOrder = {
-        _id: getProductId(),
-        name: getProductName(),
-        imageUrl: getProductImageUrl(),
-        price: getProductPrice(),
-        color: getProductColor(),
-        quantity: getProductQuantity()
-    };
-
-    const previousOrders = localStorage.getItem('cart');
-    let allOrders = [];
-    let pushNewOrder = true;
-
-    // If previous orders were found in the localStorage
-    if (previousOrders) {
-        allOrders = JSON.parse(previousOrders); // Stores the previous orders in allOrders array
-
-        for (let previousOrder of allOrders) {
-
-            // If the new order concerns the SAME product of the SAME color as a previous order
-            if (newOrder._id === previousOrder._id && newOrder.color === previousOrder.color) {
-                previousOrder.quantity += newOrder.quantity; // Updates the quantity of the previous order in question by adding the new order quantity to it
-                pushNewOrder = false; // To not push the new order to allOrders array later
-            }
-        }
-    }
-
-    // If the new order concerns A NEW product-id/color combination OR if there isn't any previous order
-    if (pushNewOrder === true) {
-        allOrders.push(newOrder); // Pushes the new order to allOrders array
-    }
-
-    localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
-    displayNumberArticlesCartIcon(true);
-};
-
-
-
-
 
 
 
 // EVENT LISTENERS
 
-// To execute displayAllProductInfo() when DOM content is loaded (because it uses DOM elements)
+// To execute displayAllProductInfo() when DOM content is loaded in the product page (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
     displayAllProductInfo();
-});
-
-
-// To execute addToCart() when the form element 'customisation-form' (which is dynamically created by JS) is submitted
-document.addEventListener('submit', function (event) {
-
-    if (event.target && event.target.id === 'customisation-form') {
-        addToCart(event);
-    }
 });
 

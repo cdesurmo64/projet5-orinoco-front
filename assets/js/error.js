@@ -1,7 +1,7 @@
-// FUNCTIONS
+// FUNCTIONS CALLED IN VARIOUS PLACES THAT CREATE AN ERROR MESSAGE AND A REFRESH BUTTON 
 
 /**
- * When the request did not went as excepted :
+ * Display an API error message :
  * targets the .error-row element (which is present in both product.html & index.html)
  * and injects the following HTML structure inside
  * to show that there was an error during communication with the API,
@@ -26,7 +26,6 @@ const displayApiError = function () {
 const refreshPage = function() {
     location.reload();
 };
-
 
 
 

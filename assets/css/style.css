@@ -651,6 +651,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 .confirmation-card .card-text-and-icon .order-resume {
   margin-top: 3rem;
+  margin-bottom: 3rem;
   border: solid 2px #8F7019;
 }
 .confirmation-card .card-text-and-icon .order-resume__title {
@@ -676,9 +677,6 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
     margin-top: 4rem;
     padding: 1rem;
   }
-  .confirmation-card .card-body {
-    margin-bottom: 2rem;
-  }
   .confirmation-card .confirmation-title {
     font-size: 5rem;
     margin-bottom: 1rem;
@@ -698,6 +696,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
   }
   .confirmation-card .card-content-wrapper .card-text-and-icon .order-resume {
     margin-top: 5rem;
+    margin-bottom: 5rem;
   }
   .confirmation-card .card-content-wrapper .big-teddy-wrapper {
     order: 1;
