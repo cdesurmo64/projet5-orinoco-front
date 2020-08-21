@@ -11,9 +11,6 @@ const displayTeddyInfo = function (teddy) {
     itemListContainer.appendChild(newItemWrapper);
     newItemWrapper.classList.add('col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
 
-    // Todo : Vérifier que les clés existent et que les valeurs assoc ne sont pas vides
-
-
     newItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -40,9 +37,12 @@ const displayTeddyInfo = function (teddy) {
 
 
 /**
- * Requests info on every teddy to the API, and displays the received info on an item card for each teddy
- * or executes displayErrorApi() if the communication with the API fails or if the API answer does not come
- * with a 200 status code
+ * Requests info on all teddies to the API.
+ * - If the communication with the API works and the response comes with a 2xx status code :
+ *    For each 'teddy' in 'teddies' :
+ *       - If we have all the requisite info about the teddy : executes displayTeddyInfo(teddy) (-> displays the received info about the teddy on an item card)
+ *       - If an info is missing about the teddy in the API answer (= an expected key is missing in 'teddy' or its value is empty) : executes displayProductError() (-> displays an error message for the teddy on an item card)
+ * - If the communication with the API fails or if the API answer does not come with a 2xx status code : executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
  */
 const displayAllTeddiesInfo = async function () {
     try {
@@ -51,8 +51,28 @@ const displayAllTeddiesInfo = async function () {
         if (response.ok) {
             let teddies = await response.json();
 
+            const keys = ['imageUrl', 'name', 'description', '_id']; // Creates an array with the keys we expect and need to check in the API answer
+
+            // For each teddy found in the API answer
             for (let teddy of teddies) {
-                displayTeddyInfo(teddy);
+                let error = false; // Creates an error variable initially set as 'false'
+
+                // For each key of the keys array
+                for (let key of keys) {
+
+                    // If a key is missing or its value is empty in teddy
+                    if (!(key in teddy) || teddy[key] === '') {
+                        error = true; // Error variable is set as 'true'
+                    }
+                }
+
+                // If error variable is 'false'
+                if (!error) {
+                    displayTeddyInfo(teddy); // Displays the info of the teddy in an item card
+                } else {
+                    // If error variable is 'true'
+                    displayProductError(); // Displays an error message saying the teddy is unavailable in an item card
+                }
             }
 
         } else {

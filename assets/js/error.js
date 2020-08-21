@@ -1,8 +1,32 @@
-// FUNCTIONS CALLED IN VARIOUS PLACES THAT CREATE AN ERROR MESSAGE AND A REFRESH BUTTON 
+// FUNCTIONS CALLED IN VARIOUS PLACES THAT CREATE AN ERROR MESSAGE AND A REFRESH BUTTON
+
+/**
+ * Display a product error message in a card, saying that the teddy is currently unavailable.
+ */
+const displayProductError = function () {
+    const itemListContainer = document.getElementById('item-list-container');
+    const newErrorItemWrapper = document.createElement('div');
+
+    itemListContainer.appendChild(newErrorItemWrapper);
+    newErrorItemWrapper.classList.add('col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
+
+    newErrorItemWrapper.innerHTML =
+        '                            <article class=\"card bg-white shadow\">' +
+        '                                <div class=\"card-body\">' +
+        '                                    <div class=\"item-info\">' +
+        '                                       <h2 class=\"card-title item-name\">Ce produit est momentanément indisponible</h2>' +
+        '                                       <div class=\"card-text\">' +
+        '                                           <p class=\"item-description\">Nous nous excusons pour la gêne occasionnée. <br> Merci de revenir plus tard, quand nous aurons retrouvé ce teddy farceur </p>' +
+        '                                       </div>' +
+        '                                    </div>' +
+        '                                </div>' +
+        '                            </article>';
+};
+
 
 /**
  * Display an API error message :
- * targets the .error-row element (which is present in both product.html & index.html)
+ * targets the .error-row element (which is present in both cart.html product.html & index.html)
  * and injects the following HTML structure inside
  * to show that there was an error during communication with the API,
  * and ask the visitor to refresh the page thanks to the newly created button
