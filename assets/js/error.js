@@ -1,14 +1,18 @@
-// FUNCTIONS CALLED IN VARIOUS PLACES THAT CREATE AN ERROR MESSAGE AND A REFRESH BUTTON
+// FUNCTIONS CALLED IN VARIOUS PLACES THAT CREATE AN ERROR MESSAGE
 
 /**
- * Display a product error message in a card, saying that the teddy is currently unavailable.
+ * Displays a product error message :
+ * targets the .item-errors-wrapper element (which is present in both index.html & product.html)
+ * and injects the following HTML structure inside
+ * to show that there this product is currently unavailable,
+ * and ask the visitor to come back later
  */
 const displayProductError = function () {
-    const itemListContainer = document.getElementById('item-list-container');
+    const itemListContainer = document.querySelector('.item-errors-wrapper');
     const newErrorItemWrapper = document.createElement('div');
 
     itemListContainer.appendChild(newErrorItemWrapper);
-    newErrorItemWrapper.classList.add('col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
+    newErrorItemWrapper.classList.add('error-item', 'col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
 
     newErrorItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
@@ -25,11 +29,11 @@ const displayProductError = function () {
 
 
 /**
- * Display an API error message :
+ * Displays an API error message :
  * targets the .error-row element (which is present in both cart.html product.html & index.html)
  * and injects the following HTML structure inside
  * to show that there was an error during communication with the API,
- * and ask the visitor to refresh the page thanks to the newly created button
+ * and ask the visitor to refresh the page thanks to the newly created refresh button
  */
 const displayApiError = function () {
     const errorRow = document.querySelector('.error-row');
@@ -48,7 +52,7 @@ const displayApiError = function () {
  * To reload the content of the page
  */
 const refreshPage = function() {
-    location.reload();
+    document.location.reload(true); // 'true' parameter forces to reload the page without using the cache
 };
 
 

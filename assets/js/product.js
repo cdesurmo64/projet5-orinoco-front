@@ -9,7 +9,7 @@ const displayProductInfo = function (product) {
     const newProductWrapper = document.createElement('div');
 
     productContainer.appendChild(newProductWrapper);
-    newProductWrapper.classList.add('col-12', 'col-lg-10', 'mx-lg-auto');
+    newProductWrapper.classList.add('product-wrapper', 'col-12', 'col-lg-10', 'mx-lg-auto');
     newProductWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -80,9 +80,16 @@ const displayProductCustomisationMenu = function (product) {
 
 
 /**
- * Requests the info of the selected product to the API, and displays the received info on an item card
- * or executes displayErrorApi() if the communication with the API fails or if the API answer does not come
- * with a 200 status code
+ * Requests the info on the selected teddy to the API.
+ * - If the communication with the API works and the response comes with a 2xx status code :
+ *     - If we have all the requisite info about the teddy :
+ *          * executes displayProductInfo(product) (-> displays the received info about the product on an item card)
+ *          * executes displayProductCustomisationMenu(product) (-> displays a form to choose the wanted quantity and color of the product)
+ *          * collects the return of createBackToHomeButton() to display this button at the end of the card
+ *
+ *     - If an info is missing about the product in the API answer (= an expected key is missing in 'product' or its value is empty) :
+ *          * executes displayProductError() (-> displays an error message for the product on an item card)
+ * - If the communication with the API fails or if the API answer does not come with a 2xx status code : executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
  */
 const displayAllProductInfo = async function () {
 
@@ -92,11 +99,29 @@ const displayAllProductInfo = async function () {
         if (response.ok) {
             let product = await response.json();
 
-            displayProductInfo(product);
-            displayProductCustomisationMenu(product);
+            const keys = ['imageUrl', 'name', 'description', '_id', 'colors', 'price']; // Creates an array with the keys we expect and need to check in the API answer
+            let error = false; // Creates an error variable initially set as 'false'
 
-            const productCardBody = document.querySelector('#product-container .card-body');
-            productCardBody.appendChild(createBackToHomeButton());
+            // For each key of the keys array
+            for (let key of keys) {
+
+                // If a key is missing or its value is empty in product
+                if (!(key in product) || product[key] === '') {
+                    error = true; // Error variable is set as 'true'
+                }
+            }
+
+            // If error variable is 'false'
+            if (!error) {
+                displayProductInfo(product); // Displays the received info about the product on an item card
+                displayProductCustomisationMenu(product); // Displays a form on the product card to choose the wanted quantity and color of the product
+
+                const productCardBody = document.querySelector('#product-container .card-body');
+                productCardBody.appendChild(createBackToHomeButton()); // Adds the back to home button at the end of the product card body
+            } else {
+                // If error variable is 'true'
+                displayProductError(); // Displays an error message saying the product is unavailable in an item card
+            }
 
         } else {
             displayApiError();

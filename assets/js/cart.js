@@ -92,7 +92,7 @@ const displayEmptyCartMessage = function () {
  *
  *  -> If there is none -> executes displayEmptyCartMessage()
  */
-const showAllItemsInCartAndStoreCartInformation = function() {
+const displayAllItemsInCartAndStoreCartInformation = function() {
 
     let totalPrice = 0;
     let totalQuantity = 0;
@@ -106,9 +106,9 @@ const showAllItemsInCartAndStoreCartInformation = function() {
             totalQuantity += Number(itemInCart.quantity);
             totalPrice += Number(itemInCart.price * itemInCart.quantity);
         }
+        orderFullPrice.textContent = totalPrice.toString();
         localStorage.setItem('orderTotalQuantity', JSON.stringify(totalQuantity)); // Stores the order total quantity of teddies in the localStorage 'orderTotalQuantity'
         localStorage.setItem('orderTotalPrice', JSON.stringify(totalPrice)); // Stores the order total price in the localStorage 'orderTotalPrice'
-        orderFullPrice.textContent = totalPrice.toString();
 
     } else {
         displayEmptyCartMessage();
@@ -173,21 +173,20 @@ const addToCart = function (event) {
  */
 const resetCartTable = function () {
 
-        const cartTableContent = document.getElementById('cart-table-content');
-        const orderFullPrice = document.getElementById('order-full-price');
+    const cartTableContent = document.getElementById('cart-table-content');
+    const orderFullPrice = document.getElementById('order-full-price');
 
-        while (cartTableContent.firstChild) {
-            cartTableContent.removeChild(cartTableContent.firstChild);
-        }
-        orderFullPrice.textContent = '0';
-    };
-
+    while (cartTableContent.firstChild) {
+        cartTableContent.removeChild(cartTableContent.firstChild);
+    }
+    orderFullPrice.textContent = '0';
+};
 
 /**
  * If there is a 'cart' in the localStorage :
  * - Empties the cart by removing the 'cart' item from the localStorage.
  * - Resets the cart table content by executing resetCartTable().
- * - Executes showAllItemsInCartAndStoreCartInformation() that check if the localStorage is effectively empty
+ * - Executes displayAllItemsInCartAndStoreCartInformation() that check if the localStorage is effectively empty
  *   and displays the empty cart message.
  * - Executes displayNumberArticlesCartIcon() that check if the localStorage is effectively empty
  *   and resets the number of article displayed in the cart icon to 0.
@@ -202,7 +201,7 @@ const emptyCart = function() {
     if (allItemsInCart) {
         localStorage.removeItem('cart');
         resetCartTable();
-        showAllItemsInCartAndStoreCartInformation();
+        displayAllItemsInCartAndStoreCartInformation();
         displayNumberArticlesCartIcon(true);
         hideEmptyCartButtonAndContactForm();
     }
@@ -224,7 +223,7 @@ document.addEventListener('submit', function (event) {
 });
 
 
-// To execute showAllItemsInCartAndStoreCartInformation(),
+// To execute displayAllItemsInCartAndStoreCartInformation(),
 // displayBackToHomeButton() and hideEmptyCartButtonAndContactForm()
 // when DOM content is loaded in the cart page (because it uses DOM elements)
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -233,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // If we are on the cart page (= if there is no '_id' in the URL parameters)
     if (!id) {
         displayNumberArticlesCartIcon(false);
-        showAllItemsInCartAndStoreCartInformation();
+        displayAllItemsInCartAndStoreCartInformation();
         displayBackToHomeButton();
         hideEmptyCartButtonAndContactForm(); // If the cart is empty when the visitor goes on the cart page, the empty cart button and the contact form to confirm the order are not showed
 

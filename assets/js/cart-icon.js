@@ -4,12 +4,13 @@
  * Gets the quantities of teddies added in the cart from the localStorage
  *
  * -> If there is at least one teddy in the cart :
- *    sums all these quantities to have the total number of teddies in the cart.
- * -> If there is none : the number of teddies in cart remains equal to 0
+ *    * sums all these quantities to have the total number of teddies in the cart.
+ * -> If there is none :
+ *    * the number of teddies in cart remains equal to 0
  *
  * -> If change_quantity_in_cart = true (= if the function is called from a function that
- * changes the number of products in the cart) : adds the 'circle-pulse' animation class during 3sec
- * to the cart number wrapper element
+ * changes the number of products in the cart) :
+ *    * adds the 'circle-pulse' animation class during 3sec to the cart number wrapper element
  *
  * Finally : displays the nb of teddies in cart on the cart icon in the header.
  */

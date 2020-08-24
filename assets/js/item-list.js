@@ -9,7 +9,7 @@ const displayTeddyInfo = function (teddy) {
     const newItemWrapper = document.createElement('div');
 
     itemListContainer.appendChild(newItemWrapper);
-    newItemWrapper.classList.add('col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
+    newItemWrapper.classList.add('item-wrapper', 'col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
 
     newItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +

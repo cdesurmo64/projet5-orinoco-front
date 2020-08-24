@@ -134,10 +134,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         // To add the back to home page button
         const cardContentWrapper = document.querySelector('.card-content-wrapper .card-text-and-icon');
-        console.log(cardContentWrapper);
         cardContentWrapper.appendChild(createBackToHomeButton());
     }
-    // If we are on the cart page (= if there is not 'orderId' in the URL parameters)
+    // If we are on the cart page (= if there is no 'orderId' in the URL parameters)
     else {
         const buyerContactForm = document.getElementById('contact-form');
 
