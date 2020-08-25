@@ -118,18 +118,25 @@ const displayAllItemsInCartAndStoreCartInformation = function() {
 
 /**
  * Adds the selected product to the cart, paying attention to the following points :
- * - If the new order concerns THE SAME product-id/color combination as a previous order
- *     -> updates the previous order quantity in the localStorage
- * - If the new order concerns A NEW product-id/color combination compared to previous orders OR
- *   if there isn't any previous order :
- *     -> stores the new order and its details (along with previous orders if any) in the localStorage
- * Finally, executes displayNumberArticlesCartIcon() to update the article number displayed on the cart icon
+ * - If the visitor did not modify HTML elements of the page to change product info :
+ *      - If the new order concerns THE SAME product-id/color combination as a previous order
+ *          -> updates the previous order quantity in the localStorage
+ *      - If the new order concerns A NEW product-id/color combination compared to previous orders OR
+ *        if there isn't any previous order :
+ *          -> stores the new order and its details (along with previous orders if any) in the localStorage
+ *      - Finally, executes displayNumberArticlesCartIcon() to update the article number displayed on the cart icon
+ *
+ * - If the visitor modified HTML elements (for instance to lower the product price or select a nonexistent color for this product)
+ *      -> executes displayInvalidProductMessage()
+ *
+ * - If the communication with the API failed somehow :
+ *      -> executes displayApiError()
  */
-const addToCart = function (event) {
+const addToCart = async function (event) {
 
     event.preventDefault(); // To prevent sending the form data and reloading the page
 
-    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart
+    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart extracted from HTML elements of the page
     const newOrder = {
         _id: document.getElementById('product-id').innerText,
         name: document.getElementById('product-name').innerText,
@@ -139,31 +146,57 @@ const addToCart = function (event) {
         quantity: Number(document.getElementById('quantity-choices').value)
     };
 
-    const previousOrders = localStorage.getItem('cart');
-    let allOrders = [];
-    let pushNewOrder = true;
+    try {
+        let response = await fetch('http://localhost:3000/api/teddies/' + new URLSearchParams(window.location.search).get('_id'));
 
-    // If previous orders were found in the localStorage
-    if (previousOrders) {
-        allOrders = JSON.parse(previousOrders); // Stores the previous orders in allOrders array
+        if (response.ok) {
+            let product = await response.json();
 
-        for (let previousOrder of allOrders) {
+            // If the 'newOrder' info on the product match the ones sent by the API in terms of ID, name, imageUrl and price,
+            // and if the selected color matches an existing color for this product according to the API
+            if (product._id === newOrder._id && product.name === newOrder.name && product.imageUrl === newOrder.imageUrl
+                && product.price === newOrder.price && product.colors.includes(newOrder.color)) {
 
-            // If the new order concerns the SAME product of the SAME color as a previous order
-            if (newOrder._id === previousOrder._id && newOrder.color === previousOrder.color) {
-                previousOrder.quantity += newOrder.quantity; // Updates the quantity of the previous order in question by adding the new order quantity to it
-                pushNewOrder = false; // To not push the new order to allOrders array later
+                const previousOrders = localStorage.getItem('cart');
+                let allOrders = [];
+                let pushNewOrder = true;
+
+                // If previous orders were found in the localStorage
+                if (previousOrders) {
+                    allOrders = JSON.parse(previousOrders); // Stores the previous orders in allOrders array
+
+                    for (let previousOrder of allOrders) {
+
+                        // If the new order concerns the SAME product of the SAME color as a previous order
+                        if (newOrder._id === previousOrder._id && newOrder.color === previousOrder.color) {
+                            previousOrder.quantity += newOrder.quantity; // Updates the quantity of the previous order in question by adding the new order quantity to it
+                            pushNewOrder = false; // To not push the new order to allOrders array later
+                        }
+                    }
+                }
+
+                // If the new order concerns A NEW product-id/color combination OR if there isn't any previous order
+                if (pushNewOrder === true) {
+                    allOrders.push(newOrder); // Pushes the new order to allOrders array
+                }
+
+                localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
+                displayNumberArticlesCartIcon(true);
+
+            } else {
+                // If the 'newOrder' info don't match the ones sent by the API or if the colors does not match an existing one according to the API
+                // (for instance : because the visitor modified HTML elements to lower the price of the product or choose a color that does not exist for this product)
+                displayInvalidProductMessage();
             }
+
+
+        } else {
+            displayApiError();
         }
     }
-
-    // If the new order concerns A NEW product-id/color combination OR if there isn't any previous order
-    if (pushNewOrder === true) {
-        allOrders.push(newOrder); // Pushes the new order to allOrders array
+    catch (e) {
+        displayApiError();
     }
-
-    localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
-    displayNumberArticlesCartIcon(true);
 };
 
 

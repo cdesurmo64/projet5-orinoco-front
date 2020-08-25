@@ -310,6 +310,14 @@ html body main {
   margin: 2rem 0;
 }
 
+.invalid-product-msg {
+  text-align: center;
+  width: fit-content;
+  margin: 3rem auto;
+  border: 2px solid #FF8FA3;
+  padding: 0.6rem;
+}
+
 @media (min-width: 768px) {
   .error-wrapper {
     margin: 0 auto 5rem;
