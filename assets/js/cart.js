@@ -184,8 +184,10 @@ const addToCart = async function (event) {
                 displayNumberArticlesCartIcon(true);
 
             } else {
-                // If the 'newOrder' info don't match the ones sent by the API or if the colors does not match an existing one according to the API
-                // (for instance : because the visitor modified HTML elements to lower the price of the product or choose a color that does not exist for this product)
+                // If the 'newOrder' info don't match the ones sent by the API
+                // or if the colors does not match an existing one according to the API
+                // (for instance : because the visitor modified HTML elements to lower the price of the product
+                // or choose a color that does not exist for this product)
                 displayInvalidProductMessage();
             }
 
