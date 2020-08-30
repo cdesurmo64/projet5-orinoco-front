@@ -3,8 +3,7 @@
 /**
  * Displays a product error message :
  * targets the .item-errors-wrapper element (which is present in both index.html & product.html)
- * and injects the following HTML structure inside
- * to show that there this product is currently unavailable,
+ * and injects the following HTML structure inside to show that the product is currently unavailable,
  * and ask the visitor to come back later
  */
 const displayProductError = function () {
@@ -13,7 +12,6 @@ const displayProductError = function () {
 
     itemListContainer.appendChild(newErrorItemWrapper);
     newErrorItemWrapper.classList.add('error-item', 'col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
-
     newErrorItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -31,33 +29,31 @@ const displayProductError = function () {
 /**
  * Displays an invalid product message :
  * targets the .product-info element (which is present in product.html)
- * and injects the following HTML structure inside
- * to show that the product the visitor tried to add to the cart is not valid,
- * and ask him to refresh the page and try again
+ * and injects the following HTML structure inside to show that the product the visitor tried to add to
+ * the cart is not valid, and ask him to refresh the page and try again
  */
 const displayInvalidProductMessage = function () {
     const productInfoWrapper = document.querySelector('.product-info');
     const invalidProductMessage = document.createElement('div');
+
     productInfoWrapper.appendChild(invalidProductMessage);
     invalidProductMessage.classList.add('invalid-product-msg');
-
     invalidProductMessage.innerHTML = 'Le produit sélectionné n\'est pas valide. <br> Veuillez rafraîchir la page et réessayer svp.'
 };
 
 
 /**
  * Displays an API error message :
- * targets the .error-row element (which is present in both cart.html product.html & index.html)
- * and injects the following HTML structure inside
- * to show that there was an error during communication with the API,
- * and ask the visitor to refresh the page thanks to the newly created refresh button
+ * targets the .error-row element (which is present in both cart.html, product.html & index.html)
+ * and injects the following HTML structure inside to show that there was an error during communication with
+ * the API, and ask the visitor to refresh the page thanks to the newly created refresh button
  */
 const displayApiError = function () {
     const errorRow = document.querySelector('.error-row');
 
     errorRow.innerHTML =
         '    <div class="bear-form-wrapper error-wrapper">\n' +
-        '        <h1 class="api-error-msg">Oups, une erreur est survenue.<br> Essayez de rafraichir la page svp ❤</h1>\n' +
+        '        <h1 class="api-error-msg">Oups, une erreur est survenue.<br> Essayez de rafraîchir la page svp ❤</h1>\n' +
         '        <img src="assets/images/teddy-bear-head-down.png" alt="Ours en peluche renversé la tête en bas" class="api-error-img">\n' +
         '        <button id="refresh-btn" type="button" aria-label="Bouton pour rafraîchir la page" class="refresh-button"></button>\n' +
         '    </div>';

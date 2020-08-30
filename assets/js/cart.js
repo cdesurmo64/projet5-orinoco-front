@@ -13,12 +13,12 @@ const displayBackToHomeButton = function () {
 
 
 /**
- * Adds the d-none class to the Empty Cart Button, the introducing contact form text
- * and the contact form if there is nothing in the cart to hide it so the visitor
- * can't confirm an empty order or empty an already empty cart
+ * - If there is nothing in the cart :
+ *   Adds the d-none class to the 'Empty Cart' Button, the introducing contact form text
+ *   and the contact form to hide it so the visitor can't confirm an empty order
+ *   or empty an already empty cart
  */
 const hideEmptyCartButtonAndContactForm = function() {
-
     const emptyCartButton = document.getElementById('btn-empty-cart');
     const contactFormText = document.querySelector('.contact-form-text');
     const contactForm = document.getElementById('contact-form');
@@ -34,9 +34,9 @@ const hideEmptyCartButtonAndContactForm = function() {
 
 /**
  * Displays important information about one ordered item (i.e. one teddy of one color) in a cart page table row.
+ * 'itemInCart' argument is provided by displayAllItemsInCartAndStoreCartInformation() function
  */
 const displayCartItemInformation = function (itemInCart) {
-
     const cartTableContent = document.getElementById('cart-table-content');
     const cartTableContentOneItemRow = document.createElement('tr');
     cartTableContent.appendChild(cartTableContentOneItemRow);
@@ -64,12 +64,10 @@ const displayCartItemInformation = function (itemInCart) {
 };
 
 
-
 /**
  * Displays a message saying that the cart is empty in a cell in a new row of the cart table
  */
 const displayEmptyCartMessage = function () {
-
     const cartTableContent = document.getElementById('cart-table-content');
 
     const cartTableContentEmptyCartRow = document.createElement('tr');
@@ -85,15 +83,14 @@ const displayEmptyCartMessage = function () {
 
 /**
  * Gets all the items in the cart and their information from the localStorage 'cart'
- *  -> If there is at least one item -> for each item found :
- *      - executes displayCartItemInformation()
- *      - calculates the total number of teddies in the cart & stores it on the localStorage
- *      - calculates the total order price, stores it on the localStorage, & displays it on the resume cart table
+ *  - If there is at least one item -> for each item found :
+ *      * executes displayCartItemInformation()
+ *      * calculates the total number of teddies in the cart & stores it on the localStorage
+ *      * calculates the total order price, stores it on the localStorage, & displays it on the resume cart table
  *
- *  -> If there is none -> executes displayEmptyCartMessage()
+ *  -> If there is none : executes displayEmptyCartMessage()
  */
 const displayAllItemsInCartAndStoreCartInformation = function() {
-
     let totalPrice = 0;
     let totalQuantity = 0;
     const orderFullPrice = document.getElementById('order-full-price');
@@ -117,7 +114,7 @@ const displayAllItemsInCartAndStoreCartInformation = function() {
 
 
 /**
- * Adds the selected product to the cart, paying attention to the following points :
+ * Adds the selected product to the cart, if certain conditions are met :
  * - If the visitor did not modify HTML elements of the page to change product info :
  *      - If the new order concerns THE SAME product-id/color combination as a previous order
  *          -> updates the previous order quantity in the localStorage
@@ -126,17 +123,18 @@ const displayAllItemsInCartAndStoreCartInformation = function() {
  *          -> stores the new order and its details (along with previous orders if any) in the localStorage
  *      - Finally, executes displayNumberArticlesCartIcon() to update the article number displayed on the cart icon
  *
- * - If the visitor modified HTML elements (for instance to lower the product price or select a nonexistent color for this product)
+ * - If the visitor modified HTML elements (for instance to lower the product price or select a nonexistent
+ *   color for this product)
  *      -> executes displayInvalidProductMessage()
  *
  * - If the communication with the API failed somehow :
  *      -> executes displayApiError()
  */
 const addToCart = async function (event) {
-
     event.preventDefault(); // To prevent sending the form data and reloading the page
 
-    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart extracted from HTML elements of the page
+    // Creates an object 'newOrder' containing all the details on the new order to be added to the cart
+    // extracted from HTML elements of the page
     const newOrder = {
         _id: document.getElementById('product-id').innerText,
         name: document.getElementById('product-name').innerText,
@@ -147,6 +145,7 @@ const addToCart = async function (event) {
     };
 
     try {
+        // Asks to the API the info about the product whose ID is contained in the URL parameter
         let response = await fetch('http://localhost:3000/api/teddies/' + new URLSearchParams(window.location.search).get('_id'));
 
         if (response.ok) {
@@ -163,24 +162,24 @@ const addToCart = async function (event) {
 
                 // If previous orders were found in the localStorage
                 if (previousOrders) {
-                    allOrders = JSON.parse(previousOrders); // Stores the previous orders in allOrders array
+                    allOrders = JSON.parse(previousOrders); // Stores the previous orders in 'allOrders' array
 
                     for (let previousOrder of allOrders) {
 
                         // If the new order concerns the SAME product of the SAME color as a previous order
                         if (newOrder._id === previousOrder._id && newOrder.color === previousOrder.color) {
                             previousOrder.quantity += newOrder.quantity; // Updates the quantity of the previous order in question by adding the new order quantity to it
-                            pushNewOrder = false; // To not push the new order to allOrders array later
+                            pushNewOrder = false; // To not push the new order to 'allOrders' array later
                         }
                     }
                 }
 
                 // If the new order concerns A NEW product-id/color combination OR if there isn't any previous order
                 if (pushNewOrder === true) {
-                    allOrders.push(newOrder); // Pushes the new order to allOrders array
+                    allOrders.push(newOrder); // Pushes the new order to 'allOrders' array
                 }
 
-                localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the allOrders array as the values associated with the 'cart' key in the localStorage
+                localStorage.setItem('cart', JSON.stringify(allOrders)); // Stores the 'allOrders' array as the values associated with the 'cart' key in the localStorage
                 displayNumberArticlesCartIcon(true);
 
             } else {
@@ -190,7 +189,6 @@ const addToCart = async function (event) {
                 // or choose a color that does not exist for this product)
                 displayInvalidProductMessage();
             }
-
 
         } else {
             displayApiError();
@@ -207,7 +205,6 @@ const addToCart = async function (event) {
  * And resets the order full price to 0 €
  */
 const resetCartTable = function () {
-
     const cartTableContent = document.getElementById('cart-table-content');
     const orderFullPrice = document.getElementById('order-full-price');
 
@@ -218,19 +215,18 @@ const resetCartTable = function () {
 };
 
 /**
- * If there is a 'cart' in the localStorage :
- * - Empties the cart by removing the 'cart' item from the localStorage.
- * - Resets the cart table content by executing resetCartTable().
- * - Executes displayAllItemsInCartAndStoreCartInformation() that check if the localStorage is effectively empty
- *   and displays the empty cart message.
- * - Executes displayNumberArticlesCartIcon() that check if the localStorage is effectively empty
- *   and resets the number of article displayed in the cart icon to 0.
+ * - If there is a 'cart' in the localStorage :
+ *   * Empties the cart by removing the 'cart' item from the localStorage.
+ *   * Resets the cart table content by executing resetCartTable().
+ *   * Executes displayAllItemsInCartAndStoreCartInformation() that check if the localStorage is effectively empty
+ *     and displays the empty cart message.
+ *   * Executes displayNumberArticlesCartIcon() that check if the localStorage is effectively empty
+ *     and resets the number of article displayed in the cart icon to 0.
  *
  * RQ : The button which needs to be clicked to empty the cart
  * is only visible when there is something in the cart so no need for an 'else' action.
  */
 const emptyCart = function() {
-
     const allItemsInCart = JSON.parse(localStorage.getItem('cart'));
 
     if (allItemsInCart) {
@@ -248,8 +244,8 @@ const emptyCart = function() {
 
 // EVENT LISTENERS :
 
-// To execute addToCart() when the product page 'customisation-form' element
-// (which is dynamically created by JS) is submitted
+// To execute addToCart() when the 'customisation-form' element
+// (which is dynamically created by JS) is submitted on the product page
 document.addEventListener('submit', function (event) {
 
     if (event.target && event.target.id === 'customisation-form') {
@@ -258,14 +254,13 @@ document.addEventListener('submit', function (event) {
 });
 
 
-// To execute displayAllItemsInCartAndStoreCartInformation(),
-// displayBackToHomeButton() and hideEmptyCartButtonAndContactForm()
-// when DOM content is loaded in the cart page (because it uses DOM elements)
+// To execute various functions when DOM content is loaded in the cart page
 document.addEventListener('DOMContentLoaded', function (event) {
     const id = new URLSearchParams(window.location.search).get('_id');
 
     // If we are on the cart page (= if there is no '_id' in the URL parameters)
     if (!id) {
+        // To execute when DOM content is loaded
         displayNumberArticlesCartIcon(false);
         displayAllItemsInCartAndStoreCartInformation();
         displayBackToHomeButton();

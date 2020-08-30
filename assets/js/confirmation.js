@@ -5,7 +5,6 @@
  * To save buyer's contact info in a variable called 'contact'
  */
 const saveBuyerContactInfo = function() {
-
     // Create an object 'contact' containing all the buyer's contact info
     // from the text he entered in the contact form
     const contact = {
@@ -15,7 +14,6 @@ const saveBuyerContactInfo = function() {
         city: document.getElementById('city').value,
         email: document.getElementById('email').value,
     };
-
     return contact;
 };
 
@@ -24,40 +22,38 @@ const saveBuyerContactInfo = function() {
  * To save the ordered products ID in an array called 'products'
  */
 const saveOrderedProductsId = function() {
-
     const products = [];
     const allOrderedProducts = JSON.parse(localStorage.getItem('cart'));
 
     for (let orderedProduct of allOrderedProducts) {
         products.push(orderedProduct._id);
     }
-
     return products;
 };
 
 
 /**
- * To submit the order -> If there is a 'cart' in the localStorage :
- *  - Creates the 'data' variable which contains the 'contact' object and the 'products' array
- *  - Tries to post 'data' to the API
- *      -> If the request is successful :
- *          - Stores API answer in the localStorage as 'orderResume' -> it contains the 'contact' object, the 'products' array, and the 'orderID' variable
- *          - Redirects to the confirmation page for this order
- *          - Executes emptyCart() to empty the cart
- *
- *      -> If the communication with the API fails or if the answer does not come with a 200 status code : executes displayApiError()
+ * To submit the order :
+ * - If there is a 'cart' in the localStorage :
+ *   * Creates the 'data' variable which contains the 'contact' object and the 'products' array
+ *   * Tries to post 'data' to the API
+ *      - If the request is successful :
+ *         * Stores API answer in the localStorage as 'orderResume'
+ *           -> it contains the 'contact' object, the 'products' array, and the 'orderID' variable
+ *         * Executes emptyCart() to empty the cart
+ *         * Redirects to the confirmation page for this order
+ *      - If the communication with the API fails or if the answer does not come with a 200 status code :
+ *        executes displayApiError()
  *
  * RQ : The button which needs to be clicked to submit the order is only visible
  * when there is something in the cart so no need for an 'else' action.
  */
 const submitOrder = async function (event) {
-
     event.preventDefault(); // To prevent sending the form data and reloading the page
     const allOrderedProducts = JSON.parse(localStorage.getItem('cart'));
 
     // If there is something in the cart = if there is a 'cart' in the localStorage
     if (allOrderedProducts) {
-
         let data = {
             contact: saveBuyerContactInfo(), // An object containing all the buyer's contact information
             products: saveOrderedProductsId() // An array containing the IDs of all the ordered items
@@ -78,13 +74,12 @@ const submitOrder = async function (event) {
                 let orderResume = await response.json();
 
                 localStorage.setItem('orderResume', JSON.stringify(orderResume)); // Stores API answer in the localStorage
+                emptyCart(); // Empty the cart
                 window.location.href = 'confirmation.html?orderId=' + orderResume.orderId; // Redirects to the confirmation page for this order
-                emptyCart()
             } else {
                 displayApiError();
             }
         }
-
         catch (e) {
             displayApiError();
         }
@@ -93,11 +88,11 @@ const submitOrder = async function (event) {
 
 
 /**
- * Gets confirmed order information from three items in the localStorage : 'orderResume', 'orderTotalPrice', 'orderTotalQuantity'
- * and displays these info on the confirmation page
+ * Gets confirmed order information from three items in the localStorage :
+ * 'orderResume', 'orderTotalPrice' & 'orderTotalQuantity'
+ * and displays these info on various elements of the confirmation page
  */
 const displayConfirmedOrderInformation = function () {
-
     // Gets the confirmed order information from the localStorage items
     const orderResume = JSON.parse(localStorage.getItem('orderResume')); // Contains 'products', 'contact' and 'orderId'
     const orderTotalPrice = JSON.parse(localStorage.getItem('orderTotalPrice'));
@@ -122,7 +117,7 @@ const displayConfirmedOrderInformation = function () {
 
 // When DOM content is loaded :
 // To execute displayConfirmedOrderInformation() and add the back to home page button in the confirmation page
-// OR to execute submitOrder() when the cart page 'contact-form' element is submitted
+// OR to execute submitOrder() when the 'contact-form' element is submitted on the cart page
 
 document.addEventListener('DOMContentLoaded', function (event) {
 

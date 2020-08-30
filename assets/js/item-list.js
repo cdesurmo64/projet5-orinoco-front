@@ -3,6 +3,7 @@
 
 /**
  * Creates a new item wrapper and displays the info of one teddy as an item card inside
+ * 'teddy' argument is provided by displayAllTeddiesInfo() function
  */
 const displayTeddyInfo = function (teddy) {
     const itemListContainer = document.getElementById('item-list-container');
@@ -10,7 +11,6 @@ const displayTeddyInfo = function (teddy) {
 
     itemListContainer.appendChild(newItemWrapper);
     newItemWrapper.classList.add('item-wrapper', 'col-12', 'col-lg-8', 'mb-5', 'my-md-5', 'mx-lg-auto');
-
     newItemWrapper.innerHTML =
         '                            <article class=\"card bg-white shadow\">' +
         '                                <div class=\"card-body\">' +
@@ -35,14 +35,16 @@ const displayTeddyInfo = function (teddy) {
 };
 
 
-
 /**
  * Requests info on all teddies to the API.
  * - If the communication with the API works and the response comes with a 2xx status code :
- *    For each 'teddy' in 'teddies' :
- *       - If we have all the requisite info about the teddy : executes displayTeddyInfo(teddy) (-> displays the received info about the teddy on an item card)
- *       - If an info is missing about the teddy in the API answer (= an expected key is missing in 'teddy' or its value is empty) : executes displayProductError() (-> displays an error message for the teddy on an item card)
- * - If the communication with the API fails or if the API answer does not come with a 2xx status code : executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
+ *      For each 'teddy' in the API answer :
+ *       - If we have all the requisite info about the teddy : executes displayTeddyInfo(teddy)
+ *         (-> displays the received info about the teddy on an item card)
+ *       - If an info is missing about the teddy in the API answer (= an expected key is missing in 'teddy'
+ *         or its value is empty) : executes displayProductError() (-> displays an error message for the teddy on an item card)
+ * - If the communication with the API fails or if the API answer does not come with a 2xx status code :
+ *   executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
  */
 const displayAllTeddiesInfo = async function () {
     try {
@@ -60,7 +62,7 @@ const displayAllTeddiesInfo = async function () {
                 // For each key of the keys array
                 for (let key of keys) {
 
-                    // If a key is missing or its value is empty in teddy
+                    // If a key is missing or its value is empty in 'teddy'
                     if (!(key in teddy) || teddy[key] === '') {
                         error = true; // Error variable is set as 'true'
                     }
@@ -83,7 +85,6 @@ const displayAllTeddiesInfo = async function () {
         displayApiError();
     }
 };
-
 
 
 

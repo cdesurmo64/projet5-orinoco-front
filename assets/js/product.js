@@ -2,7 +2,8 @@
 
 /**
  * Creates a new product wrapper inside the product container and displays all the
- * info of the product (indicated as the function parameter) as an item card inside
+ * info of the product (indicated as the function parameter) as an item card inside.
+ * 'product' argument is provided by displayAllProductInfo() function
  */
 const displayProductInfo = function (product) {
     const productContainer = document.getElementById('product-container');
@@ -37,11 +38,11 @@ const displayProductInfo = function (product) {
 };
 
 
-
 /**
  * Creates a customisation form and displays all the possible color customisation choices
  * for the product (indicated as the function parameter) as a select box inside
- * and another form group to chose the wanted product quantity
+ * and another form group to chose the wanted product quantity.
+ * 'product' argument is provided by displayAllProductInfo() function
  */
 const displayProductCustomisationForm = function (product) {
     const productInfoText = document.querySelector('.product-info .card-text');
@@ -83,15 +84,14 @@ const displayProductCustomisationForm = function (product) {
  * - If the communication with the API works and the response comes with a 2xx status code :
  *     - If we have all the requisite info about the teddy :
  *          * executes displayProductInfo(product) (-> displays the received info about the product on an item card)
- *          * executes displayProductCustomisationForm(product) (-> displays a form to choose the wanted quantity and color of the product)
+ *          * executes displayProductCustomisationForm(product) (-> displays a form to choose the wanted quantity and color)
  *          * collects the return of createBackToHomeButton() to display this button at the end of the card
- *
  *     - If an info is missing about the product in the API answer (= an expected key is missing in 'product' or its value is empty) :
  *          * executes displayProductError() (-> displays an error message for the product on an item card)
- * - If the communication with the API fails or if the API answer does not come with a 2xx status code : executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
+ * - If the communication with the API fails or if the API answer does not come with a 2xx status code :
+ *   executes displayErrorApi() (-> displays an API error message which asks to refresh the page)
  */
 const displayAllProductInfo = async function () {
-
     try {
         let response = await fetch('http://localhost:3000/api/teddies/' + new URLSearchParams(window.location.search).get('_id'));
 
@@ -116,7 +116,7 @@ const displayAllProductInfo = async function () {
                 displayProductCustomisationForm(product); // Displays a form on the product card to choose the wanted quantity and color of the product
 
                 const productCardBody = document.querySelector('#product-container .card-body');
-                productCardBody.appendChild(createBackToHomeButton()); // Adds the back to home button at the end of the product card body
+                productCardBody.appendChild(createBackToHomeButton()); // Adds the 'back to home' button at the end of the product card body
             } else {
                 // If error variable is 'true'
                 displayProductError(); // Displays an error message saying the product is unavailable in an item card
