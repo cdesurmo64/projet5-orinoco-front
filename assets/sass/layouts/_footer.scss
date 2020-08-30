@@ -17,6 +17,7 @@ footer {
     }
   }
 
+
   // Tablet&Up
   @media (min-width: $tablet) {
     .legal-link {
@@ -28,7 +29,6 @@ footer {
     }
 
     .legal-link, .socials, .contact {
-
       a {
         font-size: 2.3rem;
       }

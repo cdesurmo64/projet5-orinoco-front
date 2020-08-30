@@ -6,7 +6,6 @@
   border: solid 5px $light;
   border-radius: 25px;
 
-
   .welcome-message {
     text-align: center;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -34,7 +33,6 @@
 
 // Tablet&Up
 @media (min-width: $tablet) {
-
   .bear-form-wrapper {
     background: url(../images/bear-head-form.svg) no-repeat center center;
     background-size: 100%;

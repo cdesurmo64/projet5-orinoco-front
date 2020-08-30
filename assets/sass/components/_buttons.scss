@@ -34,7 +34,8 @@
 }
 
 
-// Select button = button on home page to open a teddy product page
+// 'Select' button = button on home page to open a teddy product page
+// 'Submit order' button = button on cart page to submit the contact form (and the order)
 #btn-select, #btn-submit-order {
   .heart-icon-love-pink {
     background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
@@ -52,7 +53,7 @@
 }
 
 
-// Add to cart button = button on product page to add the wanted quantity of product of the selected color to the cart
+// 'Add to cart' button = button on product page to add the wanted quantity of product of the selected color to the cart
 #btn-add-cart {
   .add-to-cart-icon {
     width: 2.3rem;
@@ -71,7 +72,7 @@
 }
 
 
-// btn-back-home = button on product page & cart page to go back to home page
+// 'Back to home' button = button on product page, cart page & confirmation page to go back to home page
 #btn-back-home {
   text-align: center;
   width: 150px;
@@ -99,7 +100,7 @@
 }
 
 
-// Empty cart button = button on cart page to empty the cart
+// 'Empty cart' button = button on cart page to empty the cart
 #btn-empty-cart {
   text-align: center;
   width: 150px;

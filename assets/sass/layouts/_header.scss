@@ -1,6 +1,5 @@
 // Mini Mobile&Up
 header {
-
   .navbar {
     flex-wrap: nowrap;
 
@@ -47,12 +46,10 @@ header {
   // Mobile&Up
   @media (min-width: $mobile) {
     .navbar {
-
       .navbar-brand {
-
         img {
-          height: 60px;
-          width: 60px;
+          height: 6rem;
+          width: 6rem;
         }
 
         .brand-text {
@@ -66,12 +63,10 @@ header {
   // Tablet&Up
   @media (min-width: $tablet) {
     .navbar {
-
       .navbar-brand {
-
         img {
-          height: 75px;
-          width: 75px;
+          height: 7.5rem;
+          width: 7.5rem;
         }
 
         .brand-text {
@@ -81,15 +76,13 @@ header {
       }
 
       .nav-link {
-
         img {
-          width: 85px;
-          height: 85px;
+          width: 8.5rem;
+          height: 8.5rem;
         }
       }
 
       .cart-icon {
-
         .cart-icon-nb-articles-wrapper {
           padding: 1.3rem;
           top: 17px;

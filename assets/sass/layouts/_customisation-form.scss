@@ -17,7 +17,6 @@
   }
 
   .color-form, .quantity-form {
-
     #color-choices, #quantity-choices {
       font-size: 1.6rem;
       text-align-last: center;
@@ -39,7 +38,6 @@
 // Tablet&Up
 @media (min-width: $tablet) {
   .customisation-form {
-
     .color-form, .quantity-form {
       display: flex;
       justify-content: center;
