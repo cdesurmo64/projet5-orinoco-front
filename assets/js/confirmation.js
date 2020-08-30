@@ -118,7 +118,6 @@ const displayConfirmedOrderInformation = function () {
 // When DOM content is loaded :
 // To execute displayConfirmedOrderInformation() and add the back to home page button in the confirmation page
 // OR to execute submitOrder() when the 'contact-form' element is submitted on the cart page
-
 document.addEventListener('DOMContentLoaded', function (event) {
 
     const orderId = new URLSearchParams(window.location.search).get('orderId');
