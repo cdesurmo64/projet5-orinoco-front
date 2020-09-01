@@ -18,8 +18,6 @@ I used :
 * [PostCSS autoprefixer](https://github.com/postcss/autoprefixer#options)
 * A package.json file
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dc06259aabbb4f4e95ee3912e491af74)](https://www.codacy.com/manual/cdesurmo64/projet5-orinoco-front?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cdesurmo64/projet5-orinoco-front&amp;utm_campaign=Badge_Grade)
-
 ## About me 
 
 I am a 26 years old who decided to turn over a new leaf after several years spent in the world of marine biology research. :octopus: :microscope:
