@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: max-content;
   padding: 0.2rem 1.7rem;
   margin: 1rem auto;
   font-size: 1.7rem;
@@ -38,7 +38,7 @@
 // 'Submit order' button = button on cart page to submit the contact form (and the order)
 #btn-select, #btn-submit-order {
   .heart-icon-love-pink {
-    background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
+    background: url("../../images/icon-heart-white.svg") no-repeat center center/contain;
   }
 
   &:hover {
@@ -47,7 +47,7 @@
     }
 
     .heart-icon-love-pink {
-      background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+      background: url("../../images/icon-heart-love-pink.svg") no-repeat center center/contain;
     }
   }
 }
@@ -61,12 +61,12 @@
     margin-left: 1rem;
     display: block;
     position: relative;
-    background: url("../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
+    background: url("../../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
   }
 
   &:hover {
     .add-to-cart-icon {
-      background: url("../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
+      background: url("../../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
     }
   }
 }
@@ -80,12 +80,12 @@
   .teddy-bear-head-icon {
     width: 2.3rem;
     height: 3rem;
-    background: url("../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
+    background: url("../../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
   }
 
   &:hover {
     .teddy-bear-head-icon {
-      background: url("../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
+      background: url("../../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
     }
   }
 
@@ -109,7 +109,7 @@
     width: 2.3rem;
     height: 3rem;
     margin-left: 0;
-    background: url("../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
+    background: url("../../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
   }
 
   &:hover {
@@ -118,7 +118,7 @@
     }
 
     .broken-heart-icon-white {
-      background: url("../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
+      background: url("../../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
     }
   }
 

@@ -1,4 +1,9 @@
 // Mobile&Up
+.refresh-button {
+  border: none;
+  background: url("../../images/refresh-button-icon.svg") no-repeat center center;
+}
+
 .error-wrapper {
   display: flex;
   flex-direction: column;
@@ -21,8 +26,6 @@
   }
 
   .refresh-button {
-    border: none;
-    background: url("../images/refresh-button-icon.svg") no-repeat center center;
     width: 5rem;
     height: 5rem;
     order: 3;
@@ -36,6 +39,13 @@
   margin: 3rem auto;
   border: 2px solid $pink-love;
   padding: 0.6rem;
+
+  .refresh-button {
+    display: block;
+    margin: 1.5rem auto 0;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 

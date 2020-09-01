@@ -54,6 +54,8 @@
 
     .product-price {
       font-weight: 600;
+      font-size: 1.8rem;
+      text-align: center;
 
       &__number {
         color: $purple-text;
@@ -77,7 +79,7 @@
 // Tablet&Up
 @media (min-width: $tablet) {
   #title-container {
-    background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+    background: url("../../images/light-pink-brush-stroke.png") no-repeat center center;
     background-size: contain;
     padding: 13rem 20rem;
     border: none;
@@ -90,6 +92,12 @@
   }
 
   #product-container {
+    .product-info {
+      .product-price {
+        text-align: left;
+      }
+    }
+
     .home-page-button-wrapper {
       #btn-back-home {
         margin: 5rem 0 0 1rem;

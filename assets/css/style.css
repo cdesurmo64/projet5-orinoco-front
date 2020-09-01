@@ -23,7 +23,7 @@ html body a:hover {
   text-decoration: none;
 }
 html body.bg-stains {
-  background-image: url("../images/paint-splash-gold.png");
+  background-image: url("../../images/paint-splash-gold.png");
   background-repeat: repeat;
   background-position: top 75px right;
 }
@@ -38,17 +38,17 @@ html body main {
 
 @font-face {
   font-family: "Teddy";
-  src: url("../fonts/teddy.woff2") format("woff2"), url("../fonts/teddy.woff") format("woff");
+  src: url("../../fonts/teddy.woff2") format("woff2"), url("../../fonts/teddy.woff") format("woff");
 }
 @font-face {
   font-family: "Wonderkids";
-  src: url("../fonts/wonderkids.woff2") format("woff2"), url("../fonts/wonderkids.woff") format("woff");
+  src: url("../../fonts/wonderkids.woff2") format("woff2"), url("../../fonts/wonderkids.woff") format("woff");
 }
 .btn-common {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: max-content;
   padding: 0.2rem 1.7rem;
   margin: 1rem auto;
   font-size: 1.7rem;
@@ -78,13 +78,13 @@ html body main {
 }
 
 #btn-select .heart-icon-love-pink, #btn-submit-order .heart-icon-love-pink {
-  background: url("../images/icon-heart-white.svg") no-repeat center center/contain;
+  background: url("../../images/icon-heart-white.svg") no-repeat center center/contain;
 }
 #btn-select:hover .beating-heart-icon, #btn-submit-order:hover .beating-heart-icon {
   animation: pulseHeart 1s ease infinite;
 }
 #btn-select:hover .heart-icon-love-pink, #btn-submit-order:hover .heart-icon-love-pink {
-  background: url("../images/icon-heart-love-pink.svg") no-repeat center center/contain;
+  background: url("../../images/icon-heart-love-pink.svg") no-repeat center center/contain;
 }
 
 #btn-add-cart .add-to-cart-icon {
@@ -93,10 +93,10 @@ html body main {
   margin-left: 1rem;
   display: block;
   position: relative;
-  background: url("../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
+  background: url("../../images/icon-add-to-cart-white.svg") no-repeat center center/contain;
 }
 #btn-add-cart:hover .add-to-cart-icon {
-  background: url("../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
+  background: url("../../images/icon-add-to-cart-pink.svg") no-repeat center center/contain;
 }
 
 #btn-back-home {
@@ -106,10 +106,10 @@ html body main {
 #btn-back-home .teddy-bear-head-icon {
   width: 2.3rem;
   height: 3rem;
-  background: url("../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
+  background: url("../../images/icon-teddy-bear-head-golden.svg") no-repeat center center/contain;
 }
 #btn-back-home:hover .teddy-bear-head-icon {
-  background: url("../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
+  background: url("../../images/icon-teddy-bear-head-brown.svg") no-repeat center center/contain;
 }
 @media (min-width: 768px) {
   #btn-back-home {
@@ -128,13 +128,13 @@ html body main {
   width: 2.3rem;
   height: 3rem;
   margin-left: 0;
-  background: url("../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
+  background: url("../../images/icon-broken-heart-golden.svg") no-repeat center center/contain;
 }
 #btn-empty-cart:hover .beating-heart-icon {
   animation: pulseHeart 1s ease infinite;
 }
 #btn-empty-cart:hover .broken-heart-icon-white {
-  background: url("../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
+  background: url("../../images/icon-broken-heart-pink.svg") no-repeat center center/contain;
 }
 @media (min-width: 768px) {
   #btn-empty-cart {
@@ -269,7 +269,7 @@ html body main {
 
 @media (min-width: 768px) {
   .bear-form-wrapper {
-    background: url(../images/bear-head-form.svg) no-repeat center center;
+    background: url(../../images/bear-head-form.svg) no-repeat center center;
     background-size: 100%;
     margin: 0 auto 5rem;
     padding: 11rem 18rem 8rem;
@@ -282,6 +282,11 @@ html body main {
     max-width: none;
   }
 }
+.refresh-button {
+  border: none;
+  background: url("../../images/refresh-button-icon.svg") no-repeat center center;
+}
+
 .error-wrapper {
   display: flex;
   flex-direction: column;
@@ -302,8 +307,6 @@ html body main {
   margin-bottom: 2rem;
 }
 .error-wrapper .refresh-button {
-  border: none;
-  background: url("../images/refresh-button-icon.svg") no-repeat center center;
   width: 5rem;
   height: 5rem;
   order: 3;
@@ -316,6 +319,12 @@ html body main {
   margin: 3rem auto;
   border: 2px solid #FF8FA3;
   padding: 0.6rem;
+}
+.invalid-product-msg .refresh-button {
+  display: block;
+  margin: 1.5rem auto 0;
+  width: 3rem;
+  height: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -369,8 +378,8 @@ header .navbar .cart-icon #cart-icon-nb-articles {
 }
 @media (min-width: 430px) {
   header .navbar .navbar-brand img {
-    height: 60px;
-    width: 60px;
+    height: 6rem;
+    width: 6rem;
   }
   header .navbar .navbar-brand .brand-text {
     font-size: 5rem;
@@ -378,16 +387,16 @@ header .navbar .cart-icon #cart-icon-nb-articles {
 }
 @media (min-width: 768px) {
   header .navbar .navbar-brand img {
-    height: 75px;
-    width: 75px;
+    height: 7.5rem;
+    width: 7.5rem;
   }
   header .navbar .navbar-brand .brand-text {
     font-size: 6rem;
     line-height: 7.5rem;
   }
   header .navbar .nav-link img {
-    width: 85px;
-    height: 85px;
+    width: 8.5rem;
+    height: 8.5rem;
   }
   header .navbar .cart-icon .cart-icon-nb-articles-wrapper {
     padding: 1.3rem;
@@ -489,6 +498,8 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 #product-container .product-info .product-price {
   font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
 }
 #product-container .product-info .product-price__number {
   color: #9C6870;
@@ -503,7 +514,7 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 
 @media (min-width: 768px) {
   #title-container {
-    background: url("../images/light-pink-brush-stroke.png") no-repeat center center;
+    background: url("../../images/light-pink-brush-stroke.png") no-repeat center center;
     background-size: contain;
     padding: 13rem 20rem;
     border: none;
@@ -514,6 +525,9 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
     font-size: 4rem;
   }
 
+  #product-container .product-info .product-price {
+    text-align: left;
+  }
   #product-container .home-page-button-wrapper #btn-back-home {
     margin: 5rem 0 0 1rem;
   }
@@ -556,8 +570,11 @@ footer .legal-link a:hover, footer .socials a:hover, footer .contact a:hover {
 }
 .cart-card .cart-buttons-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 3rem;
+}
+.cart-card .cart-buttons-wrapper .home-page-button-wrapper {
+  margin-right: 1rem;
 }
 @media (min-width: 768px) {
   .cart-card {

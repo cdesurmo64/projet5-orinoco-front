@@ -46,8 +46,12 @@
 
   .cart-buttons-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 3rem;
+
+    .home-page-button-wrapper {
+      margin-right: 1rem;
+    }
   }
 
 

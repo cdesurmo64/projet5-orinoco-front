@@ -29,7 +29,7 @@ const displayProductInfo = function (product) {
         product.description +
         '                                           </p>' +
         '                                           <div class=\"product-price\">' +
-        '                                               Prix : <span id=\"product-price\" class=\"product-price__number\">' + product.price + '</span>  €' +
+        '                                               Prix (TTC) : <span id=\"product-price\" class=\"product-price__number\">' + product.price + '</span>  €' +
         '                                           </div>' +
         '                                       </div>' +
         '                                    </div>' +

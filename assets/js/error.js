@@ -30,7 +30,7 @@ const displayProductError = function () {
  * Displays an invalid product message :
  * targets the .product-info element (which is present in product.html)
  * and injects the following HTML structure inside to show that the product the visitor tried to add to
- * the cart is not valid, and ask him to refresh the page and try again
+ * the cart is not valid, and ask him to refresh the page thanks to the button and try again
  */
 const displayInvalidProductMessage = function () {
     const productInfoWrapper = document.querySelector('.product-info');
@@ -38,7 +38,8 @@ const displayInvalidProductMessage = function () {
 
     productInfoWrapper.appendChild(invalidProductMessage);
     invalidProductMessage.classList.add('invalid-product-msg');
-    invalidProductMessage.innerHTML = 'Le produit sélectionné n\'est pas valide. <br> Veuillez rafraîchir la page et réessayer svp.'
+    invalidProductMessage.innerHTML = 'Le produit sélectionné n\'est pas valide. <br> Veuillez rafraîchir la page et réessayer svp. ' +
+        '<button id="refresh-btn" type="button" aria-label="Bouton pour rafraîchir la page" class="refresh-button"></button>'
 };
 
 
