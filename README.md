@@ -4,7 +4,7 @@
 
 This is the 5th project I made for my [Web Developer program at OpenClassrooms](https://openclassrooms.com/fr/paths/185-developpeur-web). :mortar_board:
 
-The goal was to develop the front-end of an eCommerce Website a website, using the JavaScript programming language to interact with users and external services. I also had to apply a test-driven approach.
+The goal was to develop the front-end of an eCommerce Website, using the JavaScript programming language to interact with users and external services. I also had to apply a test-driven approach.
 
 To see the result, you need to follow the instructions of [this repo](https://github.com/OpenClassrooms-Student-Center/JWDP5) to install the node server and the pre-made API. Then you'll be able to see the website I developed locally on your machine.
 
